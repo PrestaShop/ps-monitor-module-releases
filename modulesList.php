@@ -64,6 +64,4 @@ $modulesToProcess = [
     'pscleaner'
 ];
 
-return ['productcomments'];
-
 return $modulesToProcess;
