@@ -1,0 +1,21 @@
+{
+    "name": "matks/ps-monitor-module-releases",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "matks",
+            "email": "mathieu.ferment@prestashop.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Matks\\PrestaShopModulesReleaseMonitor\\": "src/"
+        }
+    },
+    "require": {
+        "knplabs/github-api": "^2.12",
+        "php-http/guzzle6-adapter": "^1.1",
+        "nikic/php-parser": "^4.5"
+    }
+}
