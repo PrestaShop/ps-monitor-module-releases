@@ -1,5 +1,5 @@
 {
-    "name": "matks/ps-monitor-module-releases",
+    "name": "prestashop/ps-monitor-module-releases",
     "type": "project",
     "license": "MIT",
     "authors": [
@@ -10,7 +10,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Matks\\PrestaShopModulesReleaseMonitor\\": "src/"
+            "App\\PrestaShopModulesReleaseMonitor\\": "src/"
         }
     },
     "require": {

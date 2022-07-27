@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Matks\PrestaShopModulesReleaseMonitor;
+namespace App\PrestaShopModulesReleaseMonitor;
 
 use Github\Client;
 
@@ -23,6 +23,8 @@ class BranchManager
     /**
      * @param string $repositoryName
      * @return string|null null if failed to find base branch
+     * 
+     * Inspired by https://github.com/PrestaShop/presthubot ModuleChecker::findReleaseStatus()
      */
     public function getReleaseData($repositoryName)
     {
@@ -58,6 +60,4 @@ class BranchManager
             'ahead' => $comparison['ahead_by'],
         ];
     }
-
-
 }
