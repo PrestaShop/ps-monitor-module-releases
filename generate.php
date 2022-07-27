@@ -10,7 +10,7 @@ $client = new \Github\Client();
 $token = $argv[1];
 $client->authenticate($token, null, Github\Client::AUTH_HTTP_TOKEN);
 
-$branchManager = new \Matks\PrestaShopModulesReleaseMonitor\BranchManager($client);
+$branchManager = new \App\PrestaShopModulesReleaseMonitor\BranchManager($client);
 
 $modulesToProcess = require_once __DIR__ . '/modulesList.php';
 $template = file_get_contents(__DIR__.'/src/template.tpl');
