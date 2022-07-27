@@ -43,6 +43,9 @@ class BranchManager
             if ($branchName === 'refs/heads/master') {
                 $masterBranchData = $branchData;
             }
+            if ($branchName === 'refs/heads/main') {
+                $masterBranchData = $branchData;
+            }
         }
 
         $devLastCommitSha = $devBranchData['object']['sha'];
