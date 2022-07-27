@@ -16,6 +16,7 @@ $modulesToProcess = require_once __DIR__ . '/modulesList.php';
 $template = file_get_contents(__DIR__.'/src/template.tpl');
 
 $tableRows = [];
+$i = 1;
 
 foreach ($modulesToProcess as $moduleToProcess) {
     $repositoryName = $moduleToProcess;
@@ -23,19 +24,21 @@ foreach ($modulesToProcess as $moduleToProcess) {
 
     if ($data['ahead'] == 0) {
         $tableRows[] = '<tr>
-              <th scope="row">1</th>
+              <th scope="row">'.$i.'</th>
               <td><a href="https://github.com/prestashop/'.$repositoryName.'">'.$repositoryName.'</a></td>
               <td>NO</td>
               <td>0</td>
             </tr>';
     } else {
         $tableRows[] = '<tr>
-              <th scope="row">1</th>
+              <th scope="row">'.$i.'</th>
               <td><a href="https://github.com/prestashop/'.$repositoryName.'">'.$repositoryName.'</a></td>
               <td>YES</td>
               <td>'.$data['ahead'].'</td>
             </tr>';
     }
+
+    $i++;
 }
 
 file_put_contents(__DIR__.'/docs/index.html', str_replace('{%%placeholder%%}', implode('', $tableRows), $template));
