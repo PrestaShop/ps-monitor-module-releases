@@ -12,7 +12,22 @@ $client->authenticate($token, null, Github\Client::AUTH_HTTP_TOKEN);
 
 $branchManager = new \App\PrestaShopModulesReleaseMonitor\BranchManager($client);
 
-$modulesToProcess = require_once __DIR__ . '/modulesList.php';
+function getModules($client): array
+{
+    $contents = $client->api('repo')->contents()->show('PrestaShop', 'PrestaShop-modules');
+
+    $modules = [];
+    foreach ($contents as $content) {
+        if (!empty($content['download_url'])) {
+            continue;
+        }
+        $modules[] = $content['name'];
+    }
+
+    return $modules;
+}
+
+$modulesToProcess = getModules($client);
 $template = file_get_contents(__DIR__.'/src/template.tpl');
 
 $tableRows = [];
