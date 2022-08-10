@@ -21,6 +21,7 @@
     <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
       <h1 class="display-4">Modules</h1>
       <p class="lead">Static HTML page that displays monitored modules git status. Built on GitHub Actions, GitHub pages on <a href="https://github.com/PrestaShop/ps-monitor-module-releases">PrestaShop/ps-monitor-module-releases</a></p>
+      <span class="badge bg-primary">Latest update: {%%latestUpdateDate%%}</span>
     </div>
 
     <div class="container">
