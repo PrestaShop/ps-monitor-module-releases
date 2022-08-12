@@ -1,8 +1,9 @@
 <?php
 
-
 namespace App\PrestaShopModulesReleaseMonitor;
 
+use DateTime;
+use Exception;
 use Github\Client;
 
 class BranchManager
@@ -29,6 +30,14 @@ class BranchManager
     public function getReleaseData($repositoryName)
     {
         $references = $this->client->api('gitData')->references()->branches('prestashop', $repositoryName);
+        
+        try{
+            $release = $this->client->api('repo')->releases()->latest('prestashop', $repositoryName);
+            $date = new DateTime($release['created_at']);
+            $releaseDate = $date->format('Y-m-d H:i:s');
+        } catch(Exception $e){
+            $releaseDate = 'NA';
+        } 
 
         $devBranchData = $masterBranchData = [];
         foreach ($references as $branchID => $branchData) {
@@ -61,6 +70,7 @@ class BranchManager
         return [
             'behind' => $comparison['behind_by'],
             'ahead' => $comparison['ahead_by'],
+            'releaseDate' => $releaseDate,
         ];
     }
 }

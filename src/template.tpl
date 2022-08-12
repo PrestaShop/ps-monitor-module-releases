@@ -34,6 +34,7 @@
 		      <th scope="col">Module name</th>
 		      <th scope="col">Need release?</th>
 		      <th scope="col">Commits ahead</th>
+          <th scope="col">Last release date</th>
 		    </tr>
 		  </thead>
 		  <tbody>

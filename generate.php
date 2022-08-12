@@ -70,6 +70,7 @@ foreach ($modulesToProcess as $moduleToProcess) {
               <td><a href="https://github.com/prestashop/'.$repositoryName.'">'.$repositoryName.'</a></td>
               <td>NO</td>
               <td>0</td>
+              <td>'.$data['releaseDate'].'</td>
             </tr>',
             'ahead' => 0,
         ];
@@ -80,6 +81,7 @@ foreach ($modulesToProcess as $moduleToProcess) {
               <td><a href="https://github.com/prestashop/'.$repositoryName.'">'.$repositoryName.'</a></td>
               <td>YES</td>
               <td>'.$data['ahead'].'</td>
+              <td>'.$data['releaseDate'].'</td>
             </tr>',
             'ahead' => $data['ahead'],
         ];
