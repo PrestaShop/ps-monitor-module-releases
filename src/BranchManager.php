@@ -35,7 +35,7 @@ class BranchManager
             $release = $this->client->api('repo')->releases()->latest('prestashop', $repositoryName);
             $date = new DateTime($release['created_at']);
             $releaseDate = $date->format('Y-m-d H:i:s');
-        } catch(Exception $e){
+        } catch(Exception $e) {
             $releaseDate = 'NA';
         } 
 
