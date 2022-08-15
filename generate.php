@@ -63,6 +63,13 @@ foreach ($modulesToProcess as $moduleToProcess) {
 
     $trClass = getClassByNbCommitsAhead($nbCommitsAhead);
 
+    $link = $assignee = '';
+
+    if ($data['pullRequest']) {
+        $link = '<a href="'.$data['pullRequest']['link'].'">#PR' . $data['pullRequest']['number'] . '</a>';
+        $assignee = $data['pullRequest']['assignee'];
+    }
+
     if ($nbCommitsAhead == 0) {
         $tableRows[] = [
             'html' => '<tr class="table-success">
@@ -70,7 +77,8 @@ foreach ($modulesToProcess as $moduleToProcess) {
               <td><a href="https://github.com/prestashop/'.$repositoryName.'">'.$repositoryName.'</a></td>
               <td>NO</td>
               <td>0</td>
-              <td>'.$data['releaseDate'].'</td>
+              <td>' . $data['releaseDate'] . '</td>
+              <td>' . $link . ' ' . $assignee . '</td>
             </tr>',
             'ahead' => 0,
         ];
@@ -80,8 +88,9 @@ foreach ($modulesToProcess as $moduleToProcess) {
               <th scope="row">'.$i.'</th>
               <td><a href="https://github.com/prestashop/'.$repositoryName.'">'.$repositoryName.'</a></td>
               <td>YES</td>
-              <td>'.$data['ahead'].'</td>
-              <td>'.$data['releaseDate'].'</td>
+              <td>' . $data['ahead'] . '</td>
+              <td>' . $data['releaseDate'] . '</td>
+              <td>' . $link . ' ' . $assignee . '</td>
             </tr>',
             'ahead' => $data['ahead'],
         ];

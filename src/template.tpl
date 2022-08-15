@@ -25,23 +25,21 @@
     </div>
 
     <div class="container">
-      
-
-		<table class="table table-striped">
-		  <thead>
-		    <tr>
-		      <th scope="col">#</th>
-		      <th scope="col">Module name</th>
-		      <th scope="col">Need release?</th>
-		      <th scope="col">Commits ahead</th>
-		      <th scope="col">Last release date</th>
-		    </tr>
-		  </thead>
-		  <tbody>
-		    {%%placeholder%%}
-		  </tbody>
-		</table>
-      </div>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Module name</th>
+            <th scope="col">Need release?</th>
+            <th scope="col">Commits ahead</th>
+            <th scope="col">Last release date</th>
+            <th scope="col">Pull Request</th>
+          </tr>
+        </thead>
+        <tbody>
+          {%%placeholder%%}
+        </tbody>
+      </table>
     </div>
   </body>
 </html>
