@@ -31,7 +31,7 @@ class BranchManager
     {
         $references = $this->client->api('gitData')->references()->branches('prestashop', $repositoryName);
         
-        try{
+        try {
             $release = $this->client->api('repo')->releases()->latest('prestashop', $repositoryName);
             $date = new DateTime($release['created_at']);
             $releaseDate = $date->format('Y-m-d H:i:s');
