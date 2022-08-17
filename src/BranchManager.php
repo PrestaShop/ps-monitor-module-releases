@@ -45,17 +45,19 @@ class BranchManager
 
             if ($branchName === 'refs/heads/dev') {
                 $devBranchData = $branchData;
+                $devBranchUsed = 'dev';
             }
             if ($branchName === 'refs/heads/develop') {
                 $devBranchData = $branchData;
+                $devBranchUsed = 'develop';
             }
             if ($branchName === 'refs/heads/master') {
                 $masterBranchData = $branchData;
-                $usedBranch = 'master';
+                $mainBranchUsed = 'master';
             }
             if ($branchName === 'refs/heads/main') {
                 $masterBranchData = $branchData;
-                $usedBranch = 'main';
+                $mainBranchUsed = 'main';
             }
         }
 
@@ -69,7 +71,20 @@ class BranchManager
             $devLastCommitSha
         );
 
-        $openPullRequests = $this->client->api('pull_request')->all('prestashop', $repositoryName, array('state' => 'open', 'base' => $usedBranch));
+        // Do not count dependabot commits since last release.
+        $dependabotCommit = 0;
+        if ($releaseDate != 'NA') {
+            $commits = $this->client->api('repo')->commits()->all('prestashop', $repositoryName, array('sha' => $devBranchUsed, 'since' => $release['created_at']));
+
+            foreach ($commits as $commit) {
+                $pos = strpos($commit['commit']['message'], 'dependabot');
+                if ($pos) {
+                    $dependabotCommit++;
+                }
+            }
+        }
+
+        $openPullRequests = $this->client->api('pull_request')->all('prestashop', $repositoryName, array('state' => 'open', 'base' => $mainBranchUsed));
 
         if ($openPullRequests) {
             $assignee = isset($openPullRequests[0]['assignee']['login']) ? $openPullRequests[0]['assignee']['login'] : '';
@@ -80,7 +95,7 @@ class BranchManager
 
         return [
             'behind' => $comparison['behind_by'],
-            'ahead' => $comparison['ahead_by'],
+            'ahead' => ($comparison['ahead_by']-$dependabotCommit),
             'releaseDate' => $releaseDate,
             'pullRequest' => $openPullRequest,
         ];
