@@ -38,7 +38,7 @@
     </div>
 
     <div class="container">
-      <table class="table table-striped" id="modules">
+      <table class="table table-striped table-bordered" id="modules">
         <thead>
           <tr>
             <th scope="col">#</th>
