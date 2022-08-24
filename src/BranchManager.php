@@ -82,12 +82,12 @@ class BranchManager
 
         // Do not count dependabot commits since last release
         // sleep() for rate limit see : https://docs.github.com/en/rest/search#rate-limit
-        $depandabotPrs = $this->client->api('search')->issues('is:pr is:merged repo:PrestaShop/' . $repositoryName . ' author:app/dependabot created:>' . $release['created_at']);
+        $dependabotPrs = $this->client->api('search')->issues('is:pr is:merged repo:PrestaShop/' . $repositoryName . ' author:app/dependabot created:>' . $release['created_at']);
         sleep(10);
 
         return [
             'behind' => $comparison['behind_by'],
-            'ahead' => ($comparison['ahead_by']-$depandabotPrs['total_count']),
+            'ahead' => ($comparison['ahead_by']-$dependabotPrs['total_count']),
             'releaseDate' => $releaseDate,
             'pullRequest' => $openPullRequest,
         ];

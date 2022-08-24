@@ -16,12 +16,12 @@ $branchManager = new \App\PrestaShopModulesReleaseMonitor\BranchManager($client)
 
 function getModules($client): array
 {
-    $excludeRepos = ['gamification', 'ps_emailsmanager', 'welcome'];
+    $excludedRepos = ['gamification', 'ps_emailsmanager', 'welcome'];
     $contents = $client->api('repo')->contents()->show('PrestaShop', 'PrestaShop-modules');
     $modules = [];
 
     foreach ($contents as $content) {
-        if (!empty($content['download_url']) || in_array($content['name'], $excludeRepos)) {
+        if (!empty($content['download_url']) || in_array($content['name'], $excludedRepos)) {
             continue;
         }
         $modules[] = $content['name'];
