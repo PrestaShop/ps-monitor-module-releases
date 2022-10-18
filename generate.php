@@ -10,20 +10,17 @@ require_once __DIR__ . '/vendor/autoload.php';
 
 $client = new \Github\Client();
 $token = $argv[1];
-$client->authenticate($token, null, Github\Client::AUTH_ACCESS_TOKEN);
+$client->authenticate($token, null, Github\Client::AUTH_HTTP_TOKEN);
 
 $branchManager = new \App\PrestaShopModulesReleaseMonitor\BranchManager($client);
 
 function getModules($client): array
 {
-    // PrestaShop Corp repositories
-    $excludedRepos = ['gamification', 'ps_emailsmanager'];
-
     $contents = $client->api('repo')->contents()->show('PrestaShop', 'PrestaShop-modules');
-    $modules = [];
 
+    $modules = [];
     foreach ($contents as $content) {
-        if (!empty($content['download_url']) || in_array($content['name'], $excludedRepos)) {
+        if (!empty($content['download_url'])) {
             continue;
         }
         $modules[] = $content['name'];
