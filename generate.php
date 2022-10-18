@@ -16,7 +16,7 @@ $branchManager = new \App\PrestaShopModulesReleaseMonitor\BranchManager($client)
 
 function getModules($client): array
 {
-    // PrestaShop Corp reporepositories
+    // PrestaShop Corp repositories
     $excludedRepos = ['gamification', 'ps_emailsmanager'];
 
     $contents = $client->api('repo')->contents()->show('PrestaShop', 'PrestaShop-modules');
