@@ -45,19 +45,17 @@ class BranchManager
 
             if ($branchName === 'refs/heads/dev') {
                 $devBranchData = $branchData;
-                $devBranchUsed = 'dev';
             }
             if ($branchName === 'refs/heads/develop') {
                 $devBranchData = $branchData;
-                $devBranchUsed = 'develop';
             }
             if ($branchName === 'refs/heads/master') {
                 $masterBranchData = $branchData;
-                $mainBranchUsed = 'master';
+                $usedBranch = 'master';
             }
             if ($branchName === 'refs/heads/main') {
                 $masterBranchData = $branchData;
-                $mainBranchUsed = 'main';
+                $usedBranch = 'main';
             }
         }
 
@@ -71,7 +69,7 @@ class BranchManager
             $devLastCommitSha
         );
 
-        $openPullRequests = $this->client->api('pull_request')->all('prestashop', $repositoryName, array('state' => 'open', 'base' => $mainBranchUsed));
+        $openPullRequests = $this->client->api('pull_request')->all('prestashop', $repositoryName, array('state' => 'open', 'base' => $usedBranch));
 
         if ($openPullRequests) {
             $assignee = isset($openPullRequests[0]['assignee']['login']) ? $openPullRequests[0]['assignee']['login'] : '';
@@ -80,14 +78,9 @@ class BranchManager
             $openPullRequest = false;
         }
 
-        // Do not count dependabot commits since last release
-        // sleep() for rate limit see : https://docs.github.com/en/rest/search#rate-limit
-        $dependabotPrs = $this->client->api('search')->issues('is:pr is:merged repo:PrestaShop/' . $repositoryName . ' author:app/dependabot created:>' . $release['created_at']);
-        sleep(10);
-
         return [
             'behind' => $comparison['behind_by'],
-            'ahead' => ($comparison['ahead_by']-$dependabotPrs['total_count']),
+            'ahead' => $comparison['ahead_by'],
             'releaseDate' => $releaseDate,
             'pullRequest' => $openPullRequest,
         ];
