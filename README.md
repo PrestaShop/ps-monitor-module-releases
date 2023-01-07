@@ -24,6 +24,6 @@ The GitHub Action uses [GITHUB_TOKEN](https://docs.github.com/en/actions/securit
 
 # Browse
 
-Generated static HTML is hosted on https://build.prestashop.com/ps-monitor-module-releases/
+Generated static HTML is hosted on https://build.prestashop-project.org/ps-monitor-module-releases/
 
 A GitHub Action runs `generate.php` to generate the `index.html` file in `docs/` folder then it pushes it to branch `gh-pages`.
