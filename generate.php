@@ -122,9 +122,9 @@ foreach ($modulesToProcess as $moduleName) {
     // Next release information
     $nextReleaseInformation = [];
     if (!empty($data['pullRequest'])) {
-        $nextReleaseInformation[] = 
+        $nextReleaseInformation[] =
             'PR: <a href="'. $data['pullRequest']['link'] . '">
-            #' . $data['pullRequest']['number'] . ' - ' . $data['pullRequest']['title'] . 
+            #' . $data['pullRequest']['number'] . ' - ' . $data['pullRequest']['title'] .
             '</a>';
         if ($data['pullRequest']['waitingForQa']) {
             $nextReleaseInformation[] = '<strong style="color:green;">Status: Waiting for QA</strong>';

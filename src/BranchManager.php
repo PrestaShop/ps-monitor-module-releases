@@ -52,8 +52,8 @@ class BranchManager
 
         // Get all milestones from this repository
         $milestones = $this->client->api('issue')->milestones()->all(
-            'prestashop', 
-            $repositoryName, 
+            'prestashop',
+            $repositoryName,
             ['state' => 'all']
         );
 
@@ -71,7 +71,7 @@ class BranchManager
                     ];
 
                 // Try to find next milestone higher than the last released version
-                } else if (version_compare($milestone['title'], $milestoneVersion, '>') && $milestone['state'] == 'open') {
+                } elseif (version_compare($milestone['title'], $milestoneVersion, '>') && $milestone['state'] == 'open') {
                     $milestoneInformation['next'][] = [
                         'title' => $milestone['title'],
                         'state' => $milestone['state'],
@@ -79,7 +79,7 @@ class BranchManager
                     ];
 
                 // We list some old milestones that are still open
-                } else if ($milestone['state'] == 'open') {
+                } elseif ($milestone['state'] == 'open') {
                     $milestoneInformation['old'][] = [
                         'title' => $milestone['title'],
                         'state' => $milestone['state'],
@@ -148,9 +148,9 @@ class BranchManager
             }
 
             $openPullRequest = [
-                'link' => $openPullRequests[0]['html_url'], 
-                'number' => $openPullRequests[0]['number'], 
-                'title' => $openPullRequests[0]['title'], 
+                'link' => $openPullRequests[0]['html_url'],
+                'number' => $openPullRequests[0]['number'],
+                'title' => $openPullRequests[0]['title'],
                 'assignee' => $assignee,
                 'waitingForQa' => $waitingForQa,
             ];
