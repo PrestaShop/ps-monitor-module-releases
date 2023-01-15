@@ -34,10 +34,19 @@
     <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
       <h1 class="display-4">Modules</h1>
       <p class="lead">Static HTML page that displays monitored modules git status. Built on GitHub Actions, GitHub pages on <a href="https://github.com/PrestaShop/ps-monitor-module-releases">PrestaShop/ps-monitor-module-releases</a></p>
-      <span class="badge bg-primary">Latest update: Sunday, 15 January 2023 00:12</span>
+      <span class="badge bg-primary">Latest update: Sunday, 15 January 2023 20:51</span>
     </div>
 
-    <div class="container">
+    <div class="container-fluid">
+
+      <div class="alert alert-warning" role="alert">
+        Modules <strong>contactform, ps_brandlist, ps_cashondelivery, ps_checkpayment, ps_customersignin, ps_imageslider, ps_searchbar, psgdpr</strong> have unclosed milestones, close them.
+    </div><div class="alert alert-warning" role="alert">
+        Modules <strong>contactform, gamification, ps_brandlist, ps_cashondelivery, ps_checkpayment, ps_customersignin, ps_emailsmanager, ps_searchbar</strong> don't have next milestones.
+    </div><div class="alert alert-warning" role="alert">
+        Modules <strong>ps_wirepayment</strong> have some old unclosed milestones.
+    </div>
+
       <table class="table table-striped table-bordered" id="modules">
         <thead>
           <tr>
@@ -45,509 +54,659 @@
             <th scope="col">Module name</th>
             <th scope="col">Need release?</th>
             <th scope="col">Commits ahead</th>
-            <th scope="col">Last release date</th>
-            <th scope="col">Pull Request</th>
+            <th scope="col">Last release</th>
+            <th scope="col">Last release information</th>
+            <th scope="col">Next release information</th>
           </tr>
         </thead>
         <tbody>
           <tr class="table-danger">
-              <th scope="row">2</th>
-              <td><a href="https://github.com/prestashop/blockreassurance">blockreassurance</a></td>
-              <td>YES</td>
-              <td>188</td>
-              <td>2022-04-08 15:28:20</td>
-              <td> </td>
-            </tr><tr class="table-warning">
-              <th scope="row">18</th>
-              <td><a href="https://github.com/prestashop/ps_buybuttonlite">ps_buybuttonlite</a></td>
-              <td>YES</td>
-              <td>97</td>
-              <td>2018-11-27 09:00:47</td>
-              <td> </td>
-            </tr><tr class="table-warning">
-              <th scope="row">71</th>
-              <td><a href="https://github.com/prestashop/welcome">welcome</a></td>
-              <td>YES</td>
-              <td>54</td>
-              <td>2022-10-12 12:34:29</td>
-              <td><a href="https://github.com/PrestaShop/welcome/pull/154">#PR154</a> </td>
-            </tr><tr class="table-warning">
-              <th scope="row">6</th>
-              <td><a href="https://github.com/prestashop/dashgoals">dashgoals</a></td>
-              <td>YES</td>
-              <td>52</td>
-              <td>2018-01-29 17:51:57</td>
-              <td><a href="https://github.com/PrestaShop/dashgoals/pull/31">#PR31</a> </td>
-            </tr><tr class="table-warning">
-              <th scope="row">70</th>
-              <td><a href="https://github.com/prestashop/statsstock">statsstock</a></td>
-              <td>YES</td>
-              <td>44</td>
-              <td>2017-01-31 17:24:06</td>
-              <td><a href="https://github.com/PrestaShop/statsstock/pull/24">#PR24</a> sallemiines</td>
-            </tr><tr class="table-warning">
-              <th scope="row">55</th>
-              <td><a href="https://github.com/prestashop/statsbestmanufacturers">statsbestmanufacturers</a></td>
-              <td>YES</td>
-              <td>37</td>
-              <td>2017-01-31 17:03:07</td>
-              <td><a href="https://github.com/PrestaShop/statsbestmanufacturers/pull/16">#PR16</a> </td>
-            </tr><tr class="table-warning">
-              <th scope="row">14</th>
-              <td><a href="https://github.com/prestashop/productcomments">productcomments</a></td>
-              <td>YES</td>
-              <td>28</td>
-              <td>2022-08-31 12:30:46</td>
-              <td> </td>
-            </tr><tr class="table-warning">
-              <th scope="row">49</th>
-              <td><a href="https://github.com/prestashop/ps_themecusto">ps_themecusto</a></td>
-              <td>YES</td>
-              <td>28</td>
-              <td>2021-01-19 08:41:00</td>
-              <td><a href="https://github.com/PrestaShop/ps_themecusto/pull/54">#PR54</a> </td>
-            </tr><tr class="table-light">
-              <th scope="row">47</th>
-              <td><a href="https://github.com/prestashop/ps_specials">ps_specials</a></td>
-              <td>YES</td>
-              <td>24</td>
-              <td>2016-11-15 10:55:06</td>
-              <td> </td>
-            </tr><tr class="table-light">
-              <th scope="row">24</th>
-              <td><a href="https://github.com/prestashop/ps_crossselling">ps_crossselling</a></td>
-              <td>YES</td>
-              <td>24</td>
-              <td>2021-01-07 15:27:15</td>
-              <td> </td>
-            </tr><tr class="table-light">
-              <th scope="row">26</th>
-              <td><a href="https://github.com/prestashop/ps_customeraccountlinks">ps_customeraccountlinks</a></td>
-              <td>YES</td>
-              <td>23</td>
-              <td>2021-01-08 13:24:35</td>
-              <td><a href="https://github.com/PrestaShop/ps_customeraccountlinks/pull/43">#PR43</a> </td>
-            </tr><tr class="table-light">
-              <th scope="row">20</th>
-              <td><a href="https://github.com/prestashop/ps_categoryproducts">ps_categoryproducts</a></td>
-              <td>YES</td>
-              <td>22</td>
-              <td>2018-12-13 11:37:48</td>
-              <td><a href="https://github.com/PrestaShop/ps_categoryproducts/pull/33">#PR33</a> </td>
-            </tr><tr class="table-light">
-              <th scope="row">28</th>
-              <td><a href="https://github.com/prestashop/ps_customtext">ps_customtext</a></td>
-              <td>YES</td>
-              <td>20</td>
-              <td>2021-10-26 13:46:46</td>
-              <td><a href="https://github.com/PrestaShop/ps_customtext/pull/73">#PR73</a> </td>
-            </tr><tr class="table-light">
-              <th scope="row">54</th>
-              <td><a href="https://github.com/prestashop/statsbestcustomers">statsbestcustomers</a></td>
-              <td>YES</td>
-              <td>20</td>
-              <td>2021-11-26 08:43:37</td>
-              <td><a href="https://github.com/PrestaShop/statsbestcustomers/pull/29">#PR29</a> </td>
-            </tr><tr class="table-light">
-              <th scope="row">33</th>
-              <td><a href="https://github.com/prestashop/ps_emailsubscription">ps_emailsubscription</a></td>
-              <td>YES</td>
-              <td>20</td>
-              <td>2021-07-08 15:24:45</td>
-              <td> </td>
-            </tr><tr class="table-light">
-              <th scope="row">3</th>
-              <td><a href="https://github.com/prestashop/blockwishlist">blockwishlist</a></td>
-              <td>YES</td>
-              <td>19</td>
-              <td>2022-08-01 14:47:51</td>
-              <td> </td>
-            </tr><tr class="table-light">
-              <th scope="row">46</th>
-              <td><a href="https://github.com/prestashop/ps_socialfollow">ps_socialfollow</a></td>
-              <td>YES</td>
-              <td>18</td>
-              <td>2021-07-28 07:38:05</td>
-              <td> </td>
-            </tr><tr class="table-light">
-              <th scope="row">50</th>
-              <td><a href="https://github.com/prestashop/ps_viewedproduct">ps_viewedproduct</a></td>
-              <td>YES</td>
-              <td>18</td>
-              <td>2021-10-26 14:04:09</td>
-              <td><a href="https://github.com/PrestaShop/ps_viewedproduct/pull/28">#PR28</a> </td>
-            </tr><tr class="table-light">
-              <th scope="row">48</th>
-              <td><a href="https://github.com/prestashop/ps_supplierlist">ps_supplierlist</a></td>
-              <td>YES</td>
-              <td>17</td>
-              <td>2021-11-25 10:48:12</td>
-              <td><a href="https://github.com/PrestaShop/ps_supplierlist/pull/17">#PR17</a> </td>
-            </tr><tr class="table-light">
-              <th scope="row">60</th>
-              <td><a href="https://github.com/prestashop/statscatalog">statscatalog</a></td>
-              <td>YES</td>
-              <td>16</td>
-              <td>2021-10-27 15:24:39</td>
-              <td><a href="https://github.com/PrestaShop/statscatalog/pull/28">#PR28</a> </td>
-            </tr><tr class="table-light">
-              <th scope="row">37</th>
-              <td><a href="https://github.com/prestashop/ps_googleanalytics">ps_googleanalytics</a></td>
-              <td>YES</td>
-              <td>15</td>
-              <td>2022-03-24 08:50:37</td>
-              <td> </td>
-            </tr><tr class="table-light">
-              <th scope="row">40</th>
-              <td><a href="https://github.com/prestashop/ps_linklist">ps_linklist</a></td>
-              <td>YES</td>
-              <td>14</td>
-              <td>2022-09-02 15:51:11</td>
-              <td> </td>
-            </tr><tr class="table-light">
-              <th scope="row">38</th>
-              <td><a href="https://github.com/prestashop/ps_imageslider">ps_imageslider</a></td>
-              <td>YES</td>
-              <td>14</td>
-              <td>2022-04-27 09:46:05</td>
-              <td> </td>
-            </tr><tr class="table-light">
-              <th scope="row">66</th>
-              <td><a href="https://github.com/prestashop/statsproduct">statsproduct</a></td>
-              <td>YES</td>
-              <td>13</td>
-              <td>2022-01-04 12:54:39</td>
-              <td> </td>
-            </tr><tr class="table-light">
-              <th scope="row">61</th>
-              <td><a href="https://github.com/prestashop/statscheckup">statscheckup</a></td>
-              <td>YES</td>
-              <td>13</td>
-              <td>2022-01-04 15:20:35</td>
-              <td> </td>
-            </tr><tr class="table-light">
-              <th scope="row">10</th>
-              <td><a href="https://github.com/prestashop/graphnvd3">graphnvd3</a></td>
-              <td>YES</td>
-              <td>13</td>
-              <td>2021-11-19 14:55:33</td>
-              <td><a href="https://github.com/PrestaShop/graphnvd3/pull/23">#PR23</a> </td>
-            </tr><tr class="table-light">
-              <th scope="row">67</th>
-              <td><a href="https://github.com/prestashop/statsregistrations">statsregistrations</a></td>
-              <td>YES</td>
-              <td>12</td>
-              <td>2022-01-04 13:38:03</td>
-              <td> </td>
-            </tr><tr class="table-light">
-              <th scope="row">11</th>
-              <td><a href="https://github.com/prestashop/gridhtml">gridhtml</a></td>
-              <td>YES</td>
-              <td>10</td>
-              <td>2021-11-19 15:48:55</td>
-              <td><a href="https://github.com/PrestaShop/gridhtml/pull/32">#PR32</a> </td>
-            </tr><tr class="table-light">
-              <th scope="row">1</th>
-              <td><a href="https://github.com/prestashop/autoupgrade">autoupgrade</a></td>
-              <td>YES</td>
-              <td>10</td>
-              <td>2022-12-22 08:36:04</td>
-              <td> </td>
-            </tr><tr class="table-light">
-              <th scope="row">58</th>
-              <td><a href="https://github.com/prestashop/statsbestvouchers">statsbestvouchers</a></td>
-              <td>YES</td>
-              <td>9</td>
-              <td>2022-01-10 14:25:22</td>
-              <td> </td>
-            </tr><tr class="table-light">
-              <th scope="row">53</th>
-              <td><a href="https://github.com/prestashop/statsbestcategories">statsbestcategories</a></td>
-              <td>YES</td>
-              <td>9</td>
-              <td>2022-01-06 18:39:43</td>
-              <td> </td>
-            </tr><tr class="table-light">
-              <th scope="row">56</th>
-              <td><a href="https://github.com/prestashop/statsbestproducts">statsbestproducts</a></td>
-              <td>YES</td>
-              <td>9</td>
-              <td>2022-01-11 07:52:37</td>
-              <td> </td>
-            </tr><tr class="table-light">
-              <th scope="row">69</th>
-              <td><a href="https://github.com/prestashop/statssearch">statssearch</a></td>
-              <td>YES</td>
-              <td>9</td>
-              <td>2022-01-11 07:51:12</td>
-              <td> </td>
-            </tr><tr class="table-light">
-              <th scope="row">64</th>
-              <td><a href="https://github.com/prestashop/statsnewsletter">statsnewsletter</a></td>
-              <td>YES</td>
-              <td>9</td>
-              <td>2022-01-11 16:01:42</td>
-              <td> </td>
-            </tr><tr class="table-light">
-              <th scope="row">17</th>
-              <td><a href="https://github.com/prestashop/ps_brandlist">ps_brandlist</a></td>
-              <td>YES</td>
-              <td>9</td>
-              <td>2022-01-20 14:52:25</td>
-              <td> </td>
-            </tr><tr class="table-light">
-              <th scope="row">63</th>
-              <td><a href="https://github.com/prestashop/statsforecast">statsforecast</a></td>
-              <td>YES</td>
-              <td>9</td>
-              <td>2022-02-03 14:49:26</td>
-              <td> </td>
-            </tr><tr class="table-light">
-              <th scope="row">36</th>
-              <td><a href="https://github.com/prestashop/ps_featuredproducts">ps_featuredproducts</a></td>
-              <td>YES</td>
-              <td>9</td>
-              <td>2021-12-14 09:04:39</td>
-              <td><a href="https://github.com/PrestaShop/ps_featuredproducts/pull/49">#PR49</a> </td>
-            </tr><tr class="table-light">
-              <th scope="row">35</th>
-              <td><a href="https://github.com/prestashop/ps_faviconnotificationbo">ps_faviconnotificationbo</a></td>
-              <td>YES</td>
-              <td>9</td>
-              <td>2021-10-22 18:08:46</td>
-              <td><a href="https://github.com/PrestaShop/ps_faviconnotificationbo/pull/37">#PR37</a> </td>
-            </tr><tr class="table-light">
-              <th scope="row">65</th>
-              <td><a href="https://github.com/prestashop/statspersonalinfos">statspersonalinfos</a></td>
-              <td>YES</td>
-              <td>9</td>
-              <td>2022-01-10 14:47:14</td>
-              <td> </td>
-            </tr><tr class="table-light">
-              <th scope="row">13</th>
-              <td><a href="https://github.com/prestashop/pagesnotfound">pagesnotfound</a></td>
-              <td>YES</td>
-              <td>9</td>
-              <td>2022-01-11 07:53:21</td>
-              <td> </td>
-            </tr><tr class="table-light">
-              <th scope="row">30</th>
-              <td><a href="https://github.com/prestashop/ps_distributionapiclient">ps_distributionapiclient</a></td>
-              <td>YES</td>
-              <td>9</td>
-              <td>2022-09-01 11:18:00</td>
-              <td> </td>
-            </tr><tr class="table-light">
-              <th scope="row">29</th>
-              <td><a href="https://github.com/prestashop/ps_dataprivacy">ps_dataprivacy</a></td>
-              <td>YES</td>
-              <td>8</td>
-              <td>2021-12-31 10:42:45</td>
-              <td> </td>
-            </tr><tr class="table-light">
-              <th scope="row">51</th>
-              <td><a href="https://github.com/prestashop/ps_wirepayment">ps_wirepayment</a></td>
-              <td>YES</td>
-              <td>8</td>
-              <td>2022-05-19 15:13:42</td>
-              <td> </td>
-            </tr><tr class="table-light">
-              <th scope="row">45</th>
-              <td><a href="https://github.com/prestashop/ps_shoppingcart">ps_shoppingcart</a></td>
-              <td>YES</td>
-              <td>6</td>
-              <td>2021-12-15 08:46:24</td>
-              <td><a href="https://github.com/PrestaShop/ps_shoppingcart/pull/86">#PR86</a> </td>
-            </tr><tr class="table-light">
-              <th scope="row">41</th>
-              <td><a href="https://github.com/prestashop/ps_mainmenu">ps_mainmenu</a></td>
-              <td>YES</td>
-              <td>6</td>
-              <td>2021-10-27 13:44:04</td>
-              <td> </td>
-            </tr><tr class="table-light">
-              <th scope="row">32</th>
-              <td><a href="https://github.com/prestashop/ps_emailsmanager">ps_emailsmanager</a></td>
-              <td>YES</td>
-              <td>6</td>
-              <td>NA</td>
-              <td><a href="https://github.com/PrestaShopCorp/ps_emailsmanager/pull/17">#PR17</a> </td>
-            </tr><tr class="table-light">
-              <th scope="row">59</th>
-              <td><a href="https://github.com/prestashop/statscarrier">statscarrier</a></td>
-              <td>YES</td>
-              <td>5</td>
-              <td>2022-01-11 07:50:23</td>
-              <td> </td>
-            </tr><tr class="table-light">
-              <th scope="row">43</th>
-              <td><a href="https://github.com/prestashop/ps_searchbar">ps_searchbar</a></td>
-              <td>YES</td>
-              <td>4</td>
-              <td>2022-04-13 10:56:58</td>
-              <td> </td>
-            </tr><tr class="table-light">
-              <th scope="row">31</th>
-              <td><a href="https://github.com/prestashop/ps_emailalerts">ps_emailalerts</a></td>
-              <td>YES</td>
-              <td>3</td>
-              <td>2022-11-15 14:53:41</td>
-              <td> </td>
-            </tr><tr class="table-light">
-              <th scope="row">8</th>
-              <td><a href="https://github.com/prestashop/dashtrends">dashtrends</a></td>
-              <td>YES</td>
-              <td>2</td>
-              <td>2022-12-01 10:44:15</td>
-              <td> </td>
-            </tr><tr class="table-light">
-              <th scope="row">27</th>
-              <td><a href="https://github.com/prestashop/ps_customersignin">ps_customersignin</a></td>
-              <td>YES</td>
-              <td>2</td>
-              <td>2022-08-16 19:43:00</td>
-              <td> </td>
-            </tr><tr class="table-light">
-              <th scope="row">21</th>
-              <td><a href="https://github.com/prestashop/ps_categorytree">ps_categorytree</a></td>
-              <td>YES</td>
-              <td>2</td>
-              <td>2022-11-16 16:45:31</td>
-              <td> </td>
-            </tr><tr class="table-light">
-              <th scope="row">34</th>
-              <td><a href="https://github.com/prestashop/ps_facetedsearch">ps_facetedsearch</a></td>
-              <td>YES</td>
-              <td>2</td>
-              <td>2023-01-10 11:30:32</td>
-              <td> </td>
-            </tr><tr class="table-success">
-              <th scope="row">57</th>
-              <td><a href="https://github.com/prestashop/statsbestsuppliers">statsbestsuppliers</a></td>
-              <td>NO</td>
-              <td>0</td>
-              <td>2023-01-12 09:32:39</td>
-              <td> </td>
-            </tr><tr class="table-success">
-              <th scope="row">15</th>
-              <td><a href="https://github.com/prestashop/ps_banner">ps_banner</a></td>
-              <td>NO</td>
-              <td>0</td>
-              <td>2022-07-18 14:20:33</td>
-              <td> </td>
-            </tr><tr class="table-success">
-              <th scope="row">68</th>
-              <td><a href="https://github.com/prestashop/statssales">statssales</a></td>
-              <td>NO</td>
-              <td>0</td>
-              <td>2022-04-08 12:58:57</td>
-              <td> </td>
-            </tr><tr class="table-success">
-              <th scope="row">42</th>
-              <td><a href="https://github.com/prestashop/ps_newproducts">ps_newproducts</a></td>
-              <td>NO</td>
-              <td>0</td>
-              <td>2023-01-11 13:17:54</td>
-              <td> </td>
-            </tr><tr class="table-success">
-              <th scope="row">44</th>
-              <td><a href="https://github.com/prestashop/ps_sharebuttons">ps_sharebuttons</a></td>
-              <td>NO</td>
-              <td>0</td>
-              <td>2022-12-13 10:10:47</td>
-              <td> </td>
-            </tr><tr class="table-success">
-              <th scope="row">52</th>
-              <td><a href="https://github.com/prestashop/psgdpr">psgdpr</a></td>
-              <td>NO</td>
-              <td>0</td>
-              <td>2022-12-15 10:02:36</td>
-              <td> </td>
-            </tr><tr class="table-success">
-              <th scope="row">12</th>
-              <td><a href="https://github.com/prestashop/gsitemap">gsitemap</a></td>
-              <td>NO</td>
-              <td>0</td>
-              <td>2023-01-10 10:10:23</td>
-              <td> </td>
-            </tr><tr class="table-success">
-              <th scope="row">5</th>
-              <td><a href="https://github.com/prestashop/dashactivity">dashactivity</a></td>
-              <td>NO</td>
-              <td>0</td>
-              <td>2022-12-01 10:40:27</td>
-              <td> </td>
-            </tr><tr class="table-success">
-              <th scope="row">39</th>
-              <td><a href="https://github.com/prestashop/ps_languageselector">ps_languageselector</a></td>
-              <td>NO</td>
-              <td>0</td>
-              <td>2023-01-12 13:24:11</td>
-              <td> </td>
-            </tr><tr class="table-success">
-              <th scope="row">25</th>
-              <td><a href="https://github.com/prestashop/ps_currencyselector">ps_currencyselector</a></td>
-              <td>NO</td>
-              <td>0</td>
-              <td>2023-01-12 09:41:57</td>
-              <td> </td>
-            </tr><tr class="table-success">
-              <th scope="row">62</th>
-              <td><a href="https://github.com/prestashop/statsdata">statsdata</a></td>
-              <td>NO</td>
-              <td>0</td>
-              <td>2023-01-11 10:19:56</td>
-              <td> </td>
-            </tr><tr class="table-success">
-              <th scope="row">4</th>
-              <td><a href="https://github.com/prestashop/contactform">contactform</a></td>
-              <td>NO</td>
-              <td>0</td>
-              <td>2022-11-30 13:06:59</td>
-              <td> </td>
-            </tr><tr class="table-success">
-              <th scope="row">22</th>
-              <td><a href="https://github.com/prestashop/ps_checkpayment">ps_checkpayment</a></td>
-              <td>NO</td>
-              <td>0</td>
-              <td>2022-12-06 12:20:46</td>
-              <td> </td>
-            </tr><tr class="table-success">
-              <th scope="row">19</th>
-              <td><a href="https://github.com/prestashop/ps_cashondelivery">ps_cashondelivery</a></td>
-              <td>NO</td>
-              <td>0</td>
-              <td>2022-07-15 15:20:08</td>
-              <td> </td>
-            </tr><tr class="table-success">
-              <th scope="row">9</th>
-              <td><a href="https://github.com/prestashop/gamification">gamification</a></td>
-              <td>NO</td>
-              <td>0</td>
-              <td>2022-06-13 07:06:02</td>
-              <td> </td>
-            </tr><tr class="table-success">
-              <th scope="row">23</th>
-              <td><a href="https://github.com/prestashop/ps_contactinfo">ps_contactinfo</a></td>
-              <td>NO</td>
-              <td>0</td>
-              <td>2022-12-26 17:10:23</td>
-              <td> </td>
-            </tr><tr class="table-success">
-              <th scope="row">7</th>
-              <td><a href="https://github.com/prestashop/dashproducts">dashproducts</a></td>
-              <td>NO</td>
-              <td>0</td>
-              <td>2022-11-30 16:35:45</td>
-              <td> </td>
-            </tr><tr class="table-success">
-              <th scope="row">16</th>
-              <td><a href="https://github.com/prestashop/ps_bestsellers">ps_bestsellers</a></td>
-              <td>NO</td>
-              <td>0</td>
-              <td>2023-01-12 17:29:40</td>
-              <td> </td>
-            </tr>
+            <th scope="row">2</th>
+            <td><a href="https://github.com/prestashop/blockreassurance">blockreassurance</a></td>
+            <td>YES</td>
+            <td>188</td>
+            <td>2022-04-08 15:28:20</td>
+            <td>Name: <a href="https://github.com/PrestaShop/blockreassurance/releases/tag/v5.1.1">v5.1.1</a><br/>Tag: v5.1.1<br/>Milestone: <a href="https://github.com/PrestaShop/blockreassurance/milestone/2">
+        5.1.1</a></td>
+            <td>Milestone(s): <a href="https://github.com/PrestaShop/blockreassurance/milestone/3">5.1.2</a></td>
+        </tr><tr class="table-warning">
+            <th scope="row">18</th>
+            <td><a href="https://github.com/prestashop/ps_buybuttonlite">ps_buybuttonlite</a></td>
+            <td>YES</td>
+            <td>97</td>
+            <td>2018-11-27 09:00:47</td>
+            <td>Name: <a href="https://github.com/PrestaShop/ps_buybuttonlite/releases/tag/v1.0.1">v1.0.1</a><br/>Tag: v1.0.1<br/>Not found</td>
+            <td>Milestone(s): <a href="https://github.com/PrestaShop/ps_buybuttonlite/milestone/1">1.0.2</a></td>
+        </tr><tr class="table-warning">
+            <th scope="row">71</th>
+            <td><a href="https://github.com/prestashop/welcome">welcome</a></td>
+            <td>YES</td>
+            <td>54</td>
+            <td>2022-10-12 12:34:29</td>
+            <td>Name: <a href="https://github.com/PrestaShop/welcome/releases/tag/v6.0.8">v6.0.8</a><br/>Tag: v6.0.8<br/>Milestone: <a href="https://github.com/PrestaShop/welcome/milestone/7">
+        6.0.8</a></td>
+            <td>PR: <a href="https://github.com/PrestaShop/welcome/pull/154">
+            #154 - Release 6.0.9</a><br/><strong style="color:green;">Status: Waiting for QA</strong><br/>Milestone(s): <a href="https://github.com/PrestaShop/welcome/milestone/8">6.0.9</a></td>
+        </tr><tr class="table-warning">
+            <th scope="row">6</th>
+            <td><a href="https://github.com/prestashop/dashgoals">dashgoals</a></td>
+            <td>YES</td>
+            <td>52</td>
+            <td>2018-01-29 17:51:57</td>
+            <td>Name: <a href="https://github.com/PrestaShop/dashgoals/releases/tag/v2.0.2">v2.0.2</a><br/>Tag: v2.0.2<br/>Not found</td>
+            <td>PR: <a href="https://github.com/PrestaShop/dashgoals/pull/31">
+            #31 - Release 2.0.3</a><br/><strong style="color:green;">Status: Waiting for QA</strong><br/>Milestone(s): <a href="https://github.com/PrestaShop/dashgoals/milestone/1">2.0.3</a></td>
+        </tr><tr class="table-warning">
+            <th scope="row">70</th>
+            <td><a href="https://github.com/prestashop/statsstock">statsstock</a></td>
+            <td>YES</td>
+            <td>44</td>
+            <td>2017-01-31 17:24:06</td>
+            <td>Name: <a href="https://github.com/PrestaShop/statsstock/releases/tag/v2.0.0">v2.0.0</a><br/>Tag: v2.0.0<br/>Not found</td>
+            <td>PR: <a href="https://github.com/PrestaShop/statsstock/pull/24">
+            #24 - Release 2.0.1</a><br/><strong style="color:red;">Status: Needs action</strong><br/>Assignee: sallemiines<br/>Milestone(s): <a href="https://github.com/PrestaShop/statsstock/milestone/1">2.0.1</a></td>
+        </tr><tr class="table-warning">
+            <th scope="row">55</th>
+            <td><a href="https://github.com/prestashop/statsbestmanufacturers">statsbestmanufacturers</a></td>
+            <td>YES</td>
+            <td>37</td>
+            <td>2017-01-31 17:03:07</td>
+            <td>Name: <a href="https://github.com/PrestaShop/statsbestmanufacturers/releases/tag/v2.0.0">v2.0.0</a><br/>Tag: v2.0.0<br/>Not found</td>
+            <td>PR: <a href="https://github.com/PrestaShop/statsbestmanufacturers/pull/16">
+            #16 - Release 2.0.1</a><br/><strong style="color:red;">Status: Needs action</strong><br/>Milestone(s): <a href="https://github.com/PrestaShop/statsbestmanufacturers/milestone/1">2.0.1</a></td>
+        </tr><tr class="table-warning">
+            <th scope="row">14</th>
+            <td><a href="https://github.com/prestashop/productcomments">productcomments</a></td>
+            <td>YES</td>
+            <td>28</td>
+            <td>2022-08-31 12:30:46</td>
+            <td>Name: <a href="https://github.com/PrestaShop/productcomments/releases/tag/v5.0.2">Release 5.0.2</a><br/>Tag: v5.0.2<br/>Not found</td>
+            <td>Milestone(s): <a href="https://github.com/PrestaShop/productcomments/milestone/6">5.0.3</a></td>
+        </tr><tr class="table-warning">
+            <th scope="row">49</th>
+            <td><a href="https://github.com/prestashop/ps_themecusto">ps_themecusto</a></td>
+            <td>YES</td>
+            <td>28</td>
+            <td>2021-01-19 08:41:00</td>
+            <td>Name: <a href="https://github.com/PrestaShop/ps_themecusto/releases/tag/v1.2.1">v1.2.1</a><br/>Tag: v1.2.1<br/>Milestone: <a href="https://github.com/PrestaShop/ps_themecusto/milestone/1">
+        1.2.1</a></td>
+            <td>PR: <a href="https://github.com/PrestaShop/ps_themecusto/pull/54">
+            #54 - Release version 1.2.2</a><br/><strong style="color:green;">Status: Waiting for QA</strong><br/>Milestone(s): <a href="https://github.com/PrestaShop/ps_themecusto/milestone/2">1.2.2</a></td>
+        </tr><tr class="table-light">
+            <th scope="row">47</th>
+            <td><a href="https://github.com/prestashop/ps_specials">ps_specials</a></td>
+            <td>YES</td>
+            <td>24</td>
+            <td>2016-11-15 10:55:06</td>
+            <td>Name: <a href="https://github.com/PrestaShop/ps_specials/releases/tag/v1.0.1"></a><br/>Tag: v1.0.1<br/>Not found</td>
+            <td>Milestone(s): <a href="https://github.com/PrestaShop/ps_specials/milestone/1">1.0.2</a></td>
+        </tr><tr class="table-light">
+            <th scope="row">24</th>
+            <td><a href="https://github.com/prestashop/ps_crossselling">ps_crossselling</a></td>
+            <td>YES</td>
+            <td>24</td>
+            <td>2021-01-07 15:27:15</td>
+            <td>Name: <a href="https://github.com/PrestaShop/ps_crossselling/releases/tag/v2.0.1">v2.0.1</a><br/>Tag: v2.0.1<br/>Milestone: <a href="https://github.com/PrestaShop/ps_crossselling/milestone/1">
+        2.0.1</a></td>
+            <td>Milestone(s): <a href="https://github.com/PrestaShop/ps_crossselling/milestone/2">2.0.2</a></td>
+        </tr><tr class="table-light">
+            <th scope="row">26</th>
+            <td><a href="https://github.com/prestashop/ps_customeraccountlinks">ps_customeraccountlinks</a></td>
+            <td>YES</td>
+            <td>23</td>
+            <td>2021-01-08 13:24:35</td>
+            <td>Name: <a href="https://github.com/PrestaShop/ps_customeraccountlinks/releases/tag/v3.1.1">v3.1.1</a><br/>Tag: v3.1.1<br/>Not found</td>
+            <td>PR: <a href="https://github.com/PrestaShop/ps_customeraccountlinks/pull/43">
+            #43 - Release 3.2.0</a><br/><strong style="color:red;">Status: Needs action</strong><br/>Milestone(s): <a href="https://github.com/PrestaShop/ps_customeraccountlinks/milestone/1">3.2.0</a></td>
+        </tr><tr class="table-light">
+            <th scope="row">20</th>
+            <td><a href="https://github.com/prestashop/ps_categoryproducts">ps_categoryproducts</a></td>
+            <td>YES</td>
+            <td>22</td>
+            <td>2018-12-13 11:37:48</td>
+            <td>Name: <a href="https://github.com/PrestaShop/ps_categoryproducts/releases/tag/v1.0.4">v1.0.4</a><br/>Tag: v1.0.4<br/>Not found</td>
+            <td>PR: <a href="https://github.com/PrestaShop/ps_categoryproducts/pull/33">
+            #33 - Release 1.0.5</a><br/><strong style="color:green;">Status: Waiting for QA</strong><br/>Milestone(s): <a href="https://github.com/PrestaShop/ps_categoryproducts/milestone/1">1.0.5</a></td>
+        </tr><tr class="table-light">
+            <th scope="row">28</th>
+            <td><a href="https://github.com/prestashop/ps_customtext">ps_customtext</a></td>
+            <td>YES</td>
+            <td>20</td>
+            <td>2021-10-26 13:46:46</td>
+            <td>Name: <a href="https://github.com/PrestaShop/ps_customtext/releases/tag/v4.2.0">v4.2.0</a><br/>Tag: v4.2.0<br/>Milestone: <a href="https://github.com/PrestaShop/ps_customtext/milestone/1">
+        4.2.0</a></td>
+            <td>PR: <a href="https://github.com/PrestaShop/ps_customtext/pull/73">
+            #73 - Release version 4.2.1</a><br/><strong style="color:green;">Status: Waiting for QA</strong><br/>Milestone(s): <a href="https://github.com/PrestaShop/ps_customtext/milestone/2">4.2.1</a></td>
+        </tr><tr class="table-light">
+            <th scope="row">54</th>
+            <td><a href="https://github.com/prestashop/statsbestcustomers">statsbestcustomers</a></td>
+            <td>YES</td>
+            <td>20</td>
+            <td>2021-11-26 08:43:37</td>
+            <td>Name: <a href="https://github.com/PrestaShop/statsbestcustomers/releases/tag/v2.0.3">v2.0.3</a><br/>Tag: v2.0.3<br/>Milestone: <a href="https://github.com/PrestaShop/statsbestcustomers/milestone/1">
+        2.0.3</a></td>
+            <td>PR: <a href="https://github.com/PrestaShop/statsbestcustomers/pull/29">
+            #29 - Release version 2.0.4</a><br/><strong style="color:green;">Status: Waiting for QA</strong><br/>Milestone(s): <a href="https://github.com/PrestaShop/statsbestcustomers/milestone/2">2.0.4</a></td>
+        </tr><tr class="table-light">
+            <th scope="row">33</th>
+            <td><a href="https://github.com/prestashop/ps_emailsubscription">ps_emailsubscription</a></td>
+            <td>YES</td>
+            <td>20</td>
+            <td>2021-07-08 15:24:45</td>
+            <td>Name: <a href="https://github.com/PrestaShop/ps_emailsubscription/releases/tag/v2.7.0">v2.7.0</a><br/>Tag: v2.7.0<br/>Milestone: <a href="https://github.com/PrestaShop/ps_emailsubscription/milestone/2">
+        2.7.0</a></td>
+            <td>Milestone(s): <a href="https://github.com/PrestaShop/ps_emailsubscription/milestone/3">2.7.1</a></td>
+        </tr><tr class="table-light">
+            <th scope="row">3</th>
+            <td><a href="https://github.com/prestashop/blockwishlist">blockwishlist</a></td>
+            <td>YES</td>
+            <td>19</td>
+            <td>2022-08-01 14:47:51</td>
+            <td>Name: <a href="https://github.com/PrestaShop/blockwishlist/releases/tag/v2.1.2">v2.1.2</a><br/>Tag: v2.1.2<br/>Milestone: <a href="https://github.com/PrestaShop/blockwishlist/milestone/5">
+        2.1.2</a></td>
+            <td>Milestone(s): <a href="https://github.com/PrestaShop/blockwishlist/milestone/6">2.1.3</a></td>
+        </tr><tr class="table-light">
+            <th scope="row">46</th>
+            <td><a href="https://github.com/prestashop/ps_socialfollow">ps_socialfollow</a></td>
+            <td>YES</td>
+            <td>18</td>
+            <td>2021-07-28 07:38:05</td>
+            <td>Name: <a href="https://github.com/PrestaShop/ps_socialfollow/releases/tag/v2.2.0">v2.2.0</a><br/>Tag: v2.2.0<br/>Milestone: <a href="https://github.com/PrestaShop/ps_socialfollow/milestone/1">
+        2.2.0</a></td>
+            <td>Milestone(s): <a href="https://github.com/PrestaShop/ps_socialfollow/milestone/2">2.2.1</a>, <a href="https://github.com/PrestaShop/ps_socialfollow/milestone/3">2.3.0</a></td>
+        </tr><tr class="table-light">
+            <th scope="row">50</th>
+            <td><a href="https://github.com/prestashop/ps_viewedproduct">ps_viewedproduct</a></td>
+            <td>YES</td>
+            <td>18</td>
+            <td>2021-10-26 14:04:09</td>
+            <td>Name: <a href="https://github.com/PrestaShop/ps_viewedproduct/releases/tag/v1.2.2">v1.2.2</a><br/>Tag: v1.2.2<br/>Milestone: <a href="https://github.com/PrestaShop/ps_viewedproduct/milestone/1">
+        1.2.2</a></td>
+            <td>PR: <a href="https://github.com/PrestaShop/ps_viewedproduct/pull/28">
+            #28 - Release version 1.2.3</a><br/><strong style="color:green;">Status: Waiting for QA</strong><br/>Milestone(s): <a href="https://github.com/PrestaShop/ps_viewedproduct/milestone/2">1.2.3</a></td>
+        </tr><tr class="table-light">
+            <th scope="row">48</th>
+            <td><a href="https://github.com/prestashop/ps_supplierlist">ps_supplierlist</a></td>
+            <td>YES</td>
+            <td>17</td>
+            <td>2021-11-25 10:48:12</td>
+            <td>Name: <a href="https://github.com/PrestaShop/ps_supplierlist/releases/tag/v1.0.4">v1.0.4</a><br/>Tag: v1.0.4<br/>Milestone: <a href="https://github.com/PrestaShop/ps_supplierlist/milestone/1">
+        1.0.4</a></td>
+            <td>PR: <a href="https://github.com/PrestaShop/ps_supplierlist/pull/17">
+            #17 - Release version 1.0.5</a><br/><strong style="color:green;">Status: Waiting for QA</strong><br/>Milestone(s): <a href="https://github.com/PrestaShop/ps_supplierlist/milestone/2">1.0.5</a></td>
+        </tr><tr class="table-light">
+            <th scope="row">60</th>
+            <td><a href="https://github.com/prestashop/statscatalog">statscatalog</a></td>
+            <td>YES</td>
+            <td>16</td>
+            <td>2021-10-27 15:24:39</td>
+            <td>Name: <a href="https://github.com/PrestaShop/statscatalog/releases/tag/v2.0.2">v2.0.2</a><br/>Tag: v2.0.2<br/>Milestone: <a href="https://github.com/PrestaShop/statscatalog/milestone/1">
+        2.0.2</a></td>
+            <td>PR: <a href="https://github.com/PrestaShop/statscatalog/pull/28">
+            #28 - Release version 2.0.3</a><br/><strong style="color:green;">Status: Waiting for QA</strong><br/>Milestone(s): <a href="https://github.com/PrestaShop/statscatalog/milestone/2">2.0.3</a></td>
+        </tr><tr class="table-light">
+            <th scope="row">37</th>
+            <td><a href="https://github.com/prestashop/ps_googleanalytics">ps_googleanalytics</a></td>
+            <td>YES</td>
+            <td>15</td>
+            <td>2022-03-24 08:50:37</td>
+            <td>Name: <a href="https://github.com/PrestaShop/ps_googleanalytics/releases/tag/v4.1.2">v4.1.2</a><br/>Tag: v4.1.2<br/>Milestone: <a href="https://github.com/PrestaShop/ps_googleanalytics/milestone/3">
+        4.1.2</a></td>
+            <td>Milestone(s): <a href="https://github.com/PrestaShop/ps_googleanalytics/milestone/4">4.1.3</a></td>
+        </tr><tr class="table-light">
+            <th scope="row">40</th>
+            <td><a href="https://github.com/prestashop/ps_linklist">ps_linklist</a></td>
+            <td>YES</td>
+            <td>14</td>
+            <td>2022-09-02 15:51:11</td>
+            <td>Name: <a href="https://github.com/PrestaShop/ps_linklist/releases/tag/v5.0.5">v5.0.5</a><br/>Tag: v5.0.5<br/>Milestone: <a href="https://github.com/PrestaShop/ps_linklist/milestone/8">
+        5.0.5</a></td>
+            <td>Milestone(s): <a href="https://github.com/PrestaShop/ps_linklist/milestone/9">5.0.6</a></td>
+        </tr><tr class="table-light">
+            <th scope="row">38</th>
+            <td><a href="https://github.com/prestashop/ps_imageslider">ps_imageslider</a></td>
+            <td>YES</td>
+            <td>14</td>
+            <td>2022-04-27 09:46:05</td>
+            <td>Name: <a href="https://github.com/PrestaShop/ps_imageslider/releases/tag/v3.1.1">v3.1.1</a><br/>Tag: v3.1.1<br/>Milestone: <a href="https://github.com/PrestaShop/ps_imageslider/milestone/1">
+        3.1.1</a>, <strong style="color:red;">NOT CLOSED!</strong></td>
+            <td>Milestone(s): <a href="https://github.com/PrestaShop/ps_imageslider/milestone/2">3.1.2</a></td>
+        </tr><tr class="table-light">
+            <th scope="row">66</th>
+            <td><a href="https://github.com/prestashop/statsproduct">statsproduct</a></td>
+            <td>YES</td>
+            <td>13</td>
+            <td>2022-01-04 12:54:39</td>
+            <td>Name: <a href="https://github.com/PrestaShop/statsproduct/releases/tag/v2.1.1">v2.1.1</a><br/>Tag: v2.1.1<br/>Milestone: <a href="https://github.com/PrestaShop/statsproduct/milestone/2">
+        2.1.1</a></td>
+            <td>Milestone(s): <a href="https://github.com/PrestaShop/statsproduct/milestone/3">2.1.2</a></td>
+        </tr><tr class="table-light">
+            <th scope="row">61</th>
+            <td><a href="https://github.com/prestashop/statscheckup">statscheckup</a></td>
+            <td>YES</td>
+            <td>13</td>
+            <td>2022-01-04 15:20:35</td>
+            <td>Name: <a href="https://github.com/PrestaShop/statscheckup/releases/tag/v2.0.2">v2.0.2</a><br/>Tag: v2.0.2<br/>Milestone: <a href="https://github.com/PrestaShop/statscheckup/milestone/1">
+        2.0.2</a></td>
+            <td>Milestone(s): <a href="https://github.com/PrestaShop/statscheckup/milestone/2">2.0.3</a></td>
+        </tr><tr class="table-light">
+            <th scope="row">10</th>
+            <td><a href="https://github.com/prestashop/graphnvd3">graphnvd3</a></td>
+            <td>YES</td>
+            <td>13</td>
+            <td>2021-11-19 14:55:33</td>
+            <td>Name: <a href="https://github.com/PrestaShop/graphnvd3/releases/tag/v2.0.2">v2.0.2</a><br/>Tag: v2.0.2<br/>Milestone: <a href="https://github.com/PrestaShop/graphnvd3/milestone/1">
+        2.0.2</a></td>
+            <td>PR: <a href="https://github.com/PrestaShop/graphnvd3/pull/23">
+            #23 - Release version 2.0.3</a><br/><strong style="color:green;">Status: Waiting for QA</strong><br/>Milestone(s): <a href="https://github.com/PrestaShop/graphnvd3/milestone/2">2.0.3</a></td>
+        </tr><tr class="table-light">
+            <th scope="row">67</th>
+            <td><a href="https://github.com/prestashop/statsregistrations">statsregistrations</a></td>
+            <td>YES</td>
+            <td>12</td>
+            <td>2022-01-04 13:38:03</td>
+            <td>Name: <a href="https://github.com/PrestaShop/statsregistrations/releases/tag/v2.0.1">v2.0.1</a><br/>Tag: v2.0.1<br/>Milestone: <a href="https://github.com/PrestaShop/statsregistrations/milestone/1">
+        2.0.1</a></td>
+            <td>Milestone(s): <a href="https://github.com/PrestaShop/statsregistrations/milestone/2">2.0.2</a></td>
+        </tr><tr class="table-light">
+            <th scope="row">11</th>
+            <td><a href="https://github.com/prestashop/gridhtml">gridhtml</a></td>
+            <td>YES</td>
+            <td>10</td>
+            <td>2021-11-19 15:48:55</td>
+            <td>Name: <a href="https://github.com/PrestaShop/gridhtml/releases/tag/v2.0.2">v2.0.2</a><br/>Tag: v2.0.2<br/>Milestone: <a href="https://github.com/PrestaShop/gridhtml/milestone/2">
+        2.0.2</a></td>
+            <td>PR: <a href="https://github.com/PrestaShop/gridhtml/pull/32">
+            #32 - Release version 2.0.3</a><br/><strong style="color:green;">Status: Waiting for QA</strong><br/>Milestone(s): <a href="https://github.com/PrestaShop/gridhtml/milestone/3">2.0.3</a></td>
+        </tr><tr class="table-light">
+            <th scope="row">1</th>
+            <td><a href="https://github.com/prestashop/autoupgrade">autoupgrade</a></td>
+            <td>YES</td>
+            <td>10</td>
+            <td>2022-12-22 08:36:04</td>
+            <td>Name: <a href="https://github.com/PrestaShop/autoupgrade/releases/tag/v4.15.0">v4.15.0</a><br/>Tag: v4.15.0<br/>Milestone: <a href="https://github.com/PrestaShop/autoupgrade/milestone/23">
+        4.15.0</a></td>
+            <td>Milestone(s): <a href="https://github.com/PrestaShop/autoupgrade/milestone/25">4.15.1</a></td>
+        </tr><tr class="table-light">
+            <th scope="row">58</th>
+            <td><a href="https://github.com/prestashop/statsbestvouchers">statsbestvouchers</a></td>
+            <td>YES</td>
+            <td>9</td>
+            <td>2022-01-10 14:25:22</td>
+            <td>Name: <a href="https://github.com/PrestaShop/statsbestvouchers/releases/tag/v2.0.1">v2.0.1</a><br/>Tag: v2.0.1<br/>Milestone: <a href="https://github.com/PrestaShop/statsbestvouchers/milestone/1">
+        2.0.1</a></td>
+            <td>Milestone(s): <a href="https://github.com/PrestaShop/statsbestvouchers/milestone/2">2.0.2</a></td>
+        </tr><tr class="table-light">
+            <th scope="row">53</th>
+            <td><a href="https://github.com/prestashop/statsbestcategories">statsbestcategories</a></td>
+            <td>YES</td>
+            <td>9</td>
+            <td>2022-01-06 18:39:43</td>
+            <td>Name: <a href="https://github.com/PrestaShop/statsbestcategories/releases/tag/v2.0.1">v2.0.1</a><br/>Tag: v2.0.1<br/>Milestone: <a href="https://github.com/PrestaShop/statsbestcategories/milestone/1">
+        2.0.1</a></td>
+            <td>Milestone(s): <a href="https://github.com/PrestaShop/statsbestcategories/milestone/2">2.0.2</a></td>
+        </tr><tr class="table-light">
+            <th scope="row">56</th>
+            <td><a href="https://github.com/prestashop/statsbestproducts">statsbestproducts</a></td>
+            <td>YES</td>
+            <td>9</td>
+            <td>2022-01-11 07:52:37</td>
+            <td>Name: <a href="https://github.com/PrestaShop/statsbestproducts/releases/tag/v2.0.1">v2.0.1</a><br/>Tag: v2.0.1<br/>Milestone: <a href="https://github.com/PrestaShop/statsbestproducts/milestone/1">
+        2.0.1</a></td>
+            <td>Milestone(s): <a href="https://github.com/PrestaShop/statsbestproducts/milestone/2">2.0.2</a></td>
+        </tr><tr class="table-light">
+            <th scope="row">69</th>
+            <td><a href="https://github.com/prestashop/statssearch">statssearch</a></td>
+            <td>YES</td>
+            <td>9</td>
+            <td>2022-01-11 07:51:12</td>
+            <td>Name: <a href="https://github.com/PrestaShop/statssearch/releases/tag/v2.0.2">v2.0.2</a><br/>Tag: v2.0.2<br/>Milestone: <a href="https://github.com/PrestaShop/statssearch/milestone/1">
+        2.0.2</a></td>
+            <td>Milestone(s): <a href="https://github.com/PrestaShop/statssearch/milestone/2">2.0.3</a></td>
+        </tr><tr class="table-light">
+            <th scope="row">64</th>
+            <td><a href="https://github.com/prestashop/statsnewsletter">statsnewsletter</a></td>
+            <td>YES</td>
+            <td>9</td>
+            <td>2022-01-11 16:01:42</td>
+            <td>Name: <a href="https://github.com/PrestaShop/statsnewsletter/releases/tag/v2.0.3">v2.0.3</a><br/>Tag: v2.0.3<br/>Milestone: <a href="https://github.com/PrestaShop/statsnewsletter/milestone/1">
+        2.0.3</a></td>
+            <td>Milestone(s): <a href="https://github.com/PrestaShop/statsnewsletter/milestone/2">2.0.4</a></td>
+        </tr><tr class="table-light">
+            <th scope="row">17</th>
+            <td><a href="https://github.com/prestashop/ps_brandlist">ps_brandlist</a></td>
+            <td>YES</td>
+            <td>9</td>
+            <td>2022-01-20 14:52:25</td>
+            <td>Name: <a href="https://github.com/PrestaShop/ps_brandlist/releases/tag/v1.0.3">v1.0.3</a><br/>Tag: v1.0.3<br/>Milestone: <a href="https://github.com/PrestaShop/ps_brandlist/milestone/1">
+        1.0.3</a>, <strong style="color:red;">NOT CLOSED!</strong></td>
+            <td><strong style="color:red;">Milestone not found!</strong></td>
+        </tr><tr class="table-light">
+            <th scope="row">63</th>
+            <td><a href="https://github.com/prestashop/statsforecast">statsforecast</a></td>
+            <td>YES</td>
+            <td>9</td>
+            <td>2022-02-03 14:49:26</td>
+            <td>Name: <a href="https://github.com/PrestaShop/statsforecast/releases/tag/v2.0.4">v2.0.4</a><br/>Tag: v2.0.4<br/>Milestone: <a href="https://github.com/PrestaShop/statsforecast/milestone/1">
+        2.0.4</a></td>
+            <td>Milestone(s): <a href="https://github.com/PrestaShop/statsforecast/milestone/2">2.0.5</a></td>
+        </tr><tr class="table-light">
+            <th scope="row">36</th>
+            <td><a href="https://github.com/prestashop/ps_featuredproducts">ps_featuredproducts</a></td>
+            <td>YES</td>
+            <td>9</td>
+            <td>2021-12-14 09:04:39</td>
+            <td>Name: <a href="https://github.com/PrestaShop/ps_featuredproducts/releases/tag/v2.1.2">v2.1.2</a><br/>Tag: v2.1.2<br/>Milestone: <a href="https://github.com/PrestaShop/ps_featuredproducts/milestone/2">
+        2.1.2</a></td>
+            <td>PR: <a href="https://github.com/PrestaShop/ps_featuredproducts/pull/49">
+            #49 - Release version 2.1.3</a><br/><strong style="color:green;">Status: Waiting for QA</strong><br/>Milestone(s): <a href="https://github.com/PrestaShop/ps_featuredproducts/milestone/3">2.1.3</a></td>
+        </tr><tr class="table-light">
+            <th scope="row">35</th>
+            <td><a href="https://github.com/prestashop/ps_faviconnotificationbo">ps_faviconnotificationbo</a></td>
+            <td>YES</td>
+            <td>9</td>
+            <td>2021-10-22 18:08:46</td>
+            <td>Name: <a href="https://github.com/PrestaShop/ps_faviconnotificationbo/releases/tag/v2.1.1">v2.1.1</a><br/>Tag: v2.1.1<br/>Milestone: <a href="https://github.com/PrestaShop/ps_faviconnotificationbo/milestone/2">
+        2.1.1</a></td>
+            <td>PR: <a href="https://github.com/PrestaShop/ps_faviconnotificationbo/pull/37">
+            #37 - Release version 2.1.2</a><br/><strong style="color:green;">Status: Waiting for QA</strong><br/>Milestone(s): <a href="https://github.com/PrestaShop/ps_faviconnotificationbo/milestone/3">2.1.2</a></td>
+        </tr><tr class="table-light">
+            <th scope="row">65</th>
+            <td><a href="https://github.com/prestashop/statspersonalinfos">statspersonalinfos</a></td>
+            <td>YES</td>
+            <td>9</td>
+            <td>2022-01-10 14:47:14</td>
+            <td>Name: <a href="https://github.com/PrestaShop/statspersonalinfos/releases/tag/v2.0.4">v2.0.4</a><br/>Tag: v2.0.4<br/>Milestone: <a href="https://github.com/PrestaShop/statspersonalinfos/milestone/1">
+        2.0.4</a></td>
+            <td>Milestone(s): <a href="https://github.com/PrestaShop/statspersonalinfos/milestone/2">2.0.5</a></td>
+        </tr><tr class="table-light">
+            <th scope="row">13</th>
+            <td><a href="https://github.com/prestashop/pagesnotfound">pagesnotfound</a></td>
+            <td>YES</td>
+            <td>9</td>
+            <td>2022-01-11 07:53:21</td>
+            <td>Name: <a href="https://github.com/PrestaShop/pagesnotfound/releases/tag/v2.0.2">v2.0.2</a><br/>Tag: v2.0.2<br/>Milestone: <a href="https://github.com/PrestaShop/pagesnotfound/milestone/2">
+        2.0.2</a></td>
+            <td>Milestone(s): <a href="https://github.com/PrestaShop/pagesnotfound/milestone/3">2.0.3</a></td>
+        </tr><tr class="table-light">
+            <th scope="row">30</th>
+            <td><a href="https://github.com/prestashop/ps_distributionapiclient">ps_distributionapiclient</a></td>
+            <td>YES</td>
+            <td>9</td>
+            <td>2022-09-01 11:18:00</td>
+            <td>Name: <a href="https://github.com/PrestaShop/ps_distributionapiclient/releases/tag/v1.0.2">v1.0.2</a><br/>Tag: v1.0.2<br/>Milestone: <a href="https://github.com/PrestaShop/ps_distributionapiclient/milestone/3">
+        1.0.2</a></td>
+            <td>Milestone(s): <a href="https://github.com/PrestaShop/ps_distributionapiclient/milestone/2">1.0.3</a>, <a href="https://github.com/PrestaShop/ps_distributionapiclient/milestone/4">1.1.0</a></td>
+        </tr><tr class="table-light">
+            <th scope="row">29</th>
+            <td><a href="https://github.com/prestashop/ps_dataprivacy">ps_dataprivacy</a></td>
+            <td>YES</td>
+            <td>8</td>
+            <td>2021-12-31 10:42:45</td>
+            <td>Name: <a href="https://github.com/PrestaShop/ps_dataprivacy/releases/tag/v2.1.0">v2.1.0</a><br/>Tag: v2.1.0<br/>Milestone: <a href="https://github.com/PrestaShop/ps_dataprivacy/milestone/2">
+        2.1.0</a></td>
+            <td>Milestone(s): <a href="https://github.com/PrestaShop/ps_dataprivacy/milestone/3">2.1.1</a></td>
+        </tr><tr class="table-light">
+            <th scope="row">51</th>
+            <td><a href="https://github.com/prestashop/ps_wirepayment">ps_wirepayment</a></td>
+            <td>YES</td>
+            <td>8</td>
+            <td>2022-05-19 15:13:42</td>
+            <td>Name: <a href="https://github.com/PrestaShop/ps_wirepayment/releases/tag/v2.1.3">v2.1.3</a><br/>Tag: v2.1.3<br/>Not found</td>
+            <td>Milestone(s): <a href="https://github.com/PrestaShop/ps_wirepayment/milestone/3">2.1.4</a></td>
+        </tr><tr class="table-light">
+            <th scope="row">45</th>
+            <td><a href="https://github.com/prestashop/ps_shoppingcart">ps_shoppingcart</a></td>
+            <td>YES</td>
+            <td>6</td>
+            <td>2021-12-15 08:46:24</td>
+            <td>Name: <a href="https://github.com/PrestaShop/ps_shoppingcart/releases/tag/v2.0.5">v2.0.5</a><br/>Tag: v2.0.5<br/>Milestone: <a href="https://github.com/PrestaShop/ps_shoppingcart/milestone/2">
+        2.0.5</a></td>
+            <td>PR: <a href="https://github.com/PrestaShop/ps_shoppingcart/pull/86">
+            #86 - Release version 2.0.6</a><br/><strong style="color:green;">Status: Waiting for QA</strong><br/>Milestone(s): <a href="https://github.com/PrestaShop/ps_shoppingcart/milestone/3">2.0.6</a></td>
+        </tr><tr class="table-light">
+            <th scope="row">41</th>
+            <td><a href="https://github.com/prestashop/ps_mainmenu">ps_mainmenu</a></td>
+            <td>YES</td>
+            <td>6</td>
+            <td>2021-10-27 13:44:04</td>
+            <td>Name: <a href="https://github.com/PrestaShop/ps_mainmenu/releases/tag/v2.3.1">v2.3.1</a><br/>Tag: v2.3.1<br/>Milestone: <a href="https://github.com/PrestaShop/ps_mainmenu/milestone/2">
+        2.3.1</a></td>
+            <td>Milestone(s): <a href="https://github.com/PrestaShop/ps_mainmenu/milestone/3">2.3.2</a></td>
+        </tr><tr class="table-light">
+            <th scope="row">32</th>
+            <td><a href="https://github.com/prestashop/ps_emailsmanager">ps_emailsmanager</a></td>
+            <td>YES</td>
+            <td>6</td>
+            <td>NA</td>
+            <td>No release yet<br/>Not found</td>
+            <td>PR: <a href="https://github.com/PrestaShopCorp/ps_emailsmanager/pull/17">
+            #17 - Adding some more checks on image integrity</a><br/><strong style="color:red;">Status: Needs action</strong><br/><strong style="color:red;">Milestone not found!</strong></td>
+        </tr><tr class="table-light">
+            <th scope="row">59</th>
+            <td><a href="https://github.com/prestashop/statscarrier">statscarrier</a></td>
+            <td>YES</td>
+            <td>5</td>
+            <td>2022-01-11 07:50:23</td>
+            <td>Name: <a href="https://github.com/PrestaShop/statscarrier/releases/tag/v2.0.1">v2.0.1</a><br/>Tag: v2.0.1<br/>Milestone: <a href="https://github.com/PrestaShop/statscarrier/milestone/1">
+        2.0.1</a></td>
+            <td>Milestone(s): <a href="https://github.com/PrestaShop/statscarrier/milestone/2">2.0.2</a></td>
+        </tr><tr class="table-light">
+            <th scope="row">43</th>
+            <td><a href="https://github.com/prestashop/ps_searchbar">ps_searchbar</a></td>
+            <td>YES</td>
+            <td>4</td>
+            <td>2022-04-13 10:56:58</td>
+            <td>Name: <a href="https://github.com/PrestaShop/ps_searchbar/releases/tag/v2.1.3">v2.1.3</a><br/>Tag: v2.1.3<br/>Milestone: <a href="https://github.com/PrestaShop/ps_searchbar/milestone/5">
+        2.1.3</a>, <strong style="color:red;">NOT CLOSED!</strong></td>
+            <td><strong style="color:red;">Milestone not found!</strong></td>
+        </tr><tr class="table-light">
+            <th scope="row">31</th>
+            <td><a href="https://github.com/prestashop/ps_emailalerts">ps_emailalerts</a></td>
+            <td>YES</td>
+            <td>3</td>
+            <td>2022-11-15 14:53:41</td>
+            <td>Name: <a href="https://github.com/PrestaShop/ps_emailalerts/releases/tag/v2.4.0">v2.4.0</a><br/>Tag: v2.4.0<br/>Milestone: <a href="https://github.com/PrestaShop/ps_emailalerts/milestone/6">
+        2.4.0</a></td>
+            <td>Milestone(s): <a href="https://github.com/PrestaShop/ps_emailalerts/milestone/7">2.4.1</a></td>
+        </tr><tr class="table-light">
+            <th scope="row">8</th>
+            <td><a href="https://github.com/prestashop/dashtrends">dashtrends</a></td>
+            <td>YES</td>
+            <td>2</td>
+            <td>2022-12-01 10:44:15</td>
+            <td>Name: <a href="https://github.com/PrestaShop/dashtrends/releases/tag/v2.1.0">v2.1.0</a><br/>Tag: v2.1.0<br/>Milestone: <a href="https://github.com/PrestaShop/dashtrends/milestone/1">
+        2.1.0</a></td>
+            <td>Milestone(s): <a href="https://github.com/PrestaShop/dashtrends/milestone/2">2.1.1</a></td>
+        </tr><tr class="table-light">
+            <th scope="row">27</th>
+            <td><a href="https://github.com/prestashop/ps_customersignin">ps_customersignin</a></td>
+            <td>YES</td>
+            <td>2</td>
+            <td>2022-08-16 19:43:00</td>
+            <td>Name: <a href="https://github.com/PrestaShop/ps_customersignin/releases/tag/v2.0.5">v2.0.5</a><br/>Tag: v2.0.5<br/>Milestone: <a href="https://github.com/PrestaShop/ps_customersignin/milestone/2">
+        2.0.5</a>, <strong style="color:red;">NOT CLOSED!</strong></td>
+            <td><strong style="color:red;">Milestone not found!</strong></td>
+        </tr><tr class="table-light">
+            <th scope="row">21</th>
+            <td><a href="https://github.com/prestashop/ps_categorytree">ps_categorytree</a></td>
+            <td>YES</td>
+            <td>2</td>
+            <td>2022-11-16 16:45:31</td>
+            <td>Name: <a href="https://github.com/PrestaShop/ps_categorytree/releases/tag/v2.0.3">v2.0.3</a><br/>Tag: v2.0.3<br/>Milestone: <a href="https://github.com/PrestaShop/ps_categorytree/milestone/3">
+        2.0.3</a></td>
+            <td>Milestone(s): <a href="https://github.com/PrestaShop/ps_categorytree/milestone/4">2.0.4</a></td>
+        </tr><tr class="table-light">
+            <th scope="row">34</th>
+            <td><a href="https://github.com/prestashop/ps_facetedsearch">ps_facetedsearch</a></td>
+            <td>YES</td>
+            <td>2</td>
+            <td>2023-01-10 11:30:32</td>
+            <td>Name: <a href="https://github.com/PrestaShop/ps_facetedsearch/releases/tag/v3.10.0">v3.10.0</a><br/>Tag: v3.10.0<br/>Milestone: <a href="https://github.com/PrestaShop/ps_facetedsearch/milestone/24">
+        3.10.0</a></td>
+            <td>Milestone(s): <a href="https://github.com/PrestaShop/ps_facetedsearch/milestone/23">3.11.0</a></td>
+        </tr><tr class="table-light">
+            <th scope="row">57</th>
+            <td><a href="https://github.com/prestashop/statsbestsuppliers">statsbestsuppliers</a></td>
+            <td>NO</td>
+            <td>0</td>
+            <td>2023-01-12 09:32:39</td>
+            <td>Name: <a href="https://github.com/PrestaShop/statsbestsuppliers/releases/tag/v2.0.1">v2.0.1</a><br/>Tag: v2.0.1<br/>Milestone: <a href="https://github.com/PrestaShop/statsbestsuppliers/milestone/1">
+        2.0.1</a></td>
+            <td>Milestone(s): <a href="https://github.com/PrestaShop/statsbestsuppliers/milestone/2">2.0.2</a></td>
+        </tr><tr class="table-light">
+            <th scope="row">15</th>
+            <td><a href="https://github.com/prestashop/ps_banner">ps_banner</a></td>
+            <td>NO</td>
+            <td>0</td>
+            <td>2022-07-18 14:20:33</td>
+            <td>Name: <a href="https://github.com/PrestaShop/ps_banner/releases/tag/v2.1.2">v2.1.2</a><br/>Tag: v2.1.2<br/>Milestone: <a href="https://github.com/PrestaShop/ps_banner/milestone/2">
+        2.1.2</a></td>
+            <td>Milestone(s): <a href="https://github.com/PrestaShop/ps_banner/milestone/3">2.1.3</a></td>
+        </tr><tr class="table-light">
+            <th scope="row">68</th>
+            <td><a href="https://github.com/prestashop/statssales">statssales</a></td>
+            <td>NO</td>
+            <td>0</td>
+            <td>2022-04-08 12:58:57</td>
+            <td>Name: <a href="https://github.com/PrestaShop/statssales/releases/tag/v2.1.0">v2.1.0</a><br/>Tag: v2.1.0<br/>Milestone: <a href="https://github.com/PrestaShop/statssales/milestone/1">
+        2.1.0</a></td>
+            <td>Milestone(s): <a href="https://github.com/PrestaShop/statssales/milestone/2">2.1.1</a></td>
+        </tr><tr class="table-light">
+            <th scope="row">42</th>
+            <td><a href="https://github.com/prestashop/ps_newproducts">ps_newproducts</a></td>
+            <td>NO</td>
+            <td>0</td>
+            <td>2023-01-11 13:17:54</td>
+            <td>Name: <a href="https://github.com/PrestaShop/ps_newproducts/releases/tag/v1.0.2">v1.0.2</a><br/>Tag: v1.0.2<br/>Milestone: <a href="https://github.com/PrestaShop/ps_newproducts/milestone/1">
+        1.0.2</a></td>
+            <td>Milestone(s): <a href="https://github.com/PrestaShop/ps_newproducts/milestone/2">1.0.3</a></td>
+        </tr><tr class="table-light">
+            <th scope="row">44</th>
+            <td><a href="https://github.com/prestashop/ps_sharebuttons">ps_sharebuttons</a></td>
+            <td>NO</td>
+            <td>0</td>
+            <td>2022-12-13 10:10:47</td>
+            <td>Name: <a href="https://github.com/PrestaShop/ps_sharebuttons/releases/tag/v2.1.2">v2.1.2</a><br/>Tag: v2.1.2<br/>Milestone: <a href="https://github.com/PrestaShop/ps_sharebuttons/milestone/2">
+        2.1.2</a></td>
+            <td>Milestone(s): <a href="https://github.com/PrestaShop/ps_sharebuttons/milestone/3">2.1.3</a></td>
+        </tr><tr class="table-light">
+            <th scope="row">52</th>
+            <td><a href="https://github.com/prestashop/psgdpr">psgdpr</a></td>
+            <td>NO</td>
+            <td>0</td>
+            <td>2022-12-15 10:02:36</td>
+            <td>Name: <a href="https://github.com/PrestaShop/psgdpr/releases/tag/v1.4.3">v1.4.3</a><br/>Tag: v1.4.3<br/>Milestone: <a href="https://github.com/PrestaShop/psgdpr/milestone/5">
+        1.4.3</a>, <strong style="color:red;">NOT CLOSED!</strong></td>
+            <td>Milestone(s): <a href="https://github.com/PrestaShop/psgdpr/milestone/6">1.5.0</a></td>
+        </tr><tr class="table-light">
+            <th scope="row">12</th>
+            <td><a href="https://github.com/prestashop/gsitemap">gsitemap</a></td>
+            <td>NO</td>
+            <td>0</td>
+            <td>2023-01-10 10:10:23</td>
+            <td>Name: <a href="https://github.com/PrestaShop/gsitemap/releases/tag/v4.2.1">v4.2.1</a><br/>Tag: v4.2.1<br/>Milestone: <a href="https://github.com/PrestaShop/gsitemap/milestone/1">
+        4.2.1</a></td>
+            <td>Milestone(s): <a href="https://github.com/PrestaShop/gsitemap/milestone/2">4.2.2</a></td>
+        </tr><tr class="table-light">
+            <th scope="row">5</th>
+            <td><a href="https://github.com/prestashop/dashactivity">dashactivity</a></td>
+            <td>NO</td>
+            <td>0</td>
+            <td>2022-12-01 10:40:27</td>
+            <td>Name: <a href="https://github.com/PrestaShop/dashactivity/releases/tag/v2.1.0">v2.1.0</a><br/>Tag: v2.1.0<br/>Milestone: <a href="https://github.com/PrestaShop/dashactivity/milestone/1">
+        2.1.0</a></td>
+            <td>Milestone(s): <a href="https://github.com/PrestaShop/dashactivity/milestone/2">2.1.1</a></td>
+        </tr><tr class="table-light">
+            <th scope="row">39</th>
+            <td><a href="https://github.com/prestashop/ps_languageselector">ps_languageselector</a></td>
+            <td>NO</td>
+            <td>0</td>
+            <td>2023-01-12 13:24:11</td>
+            <td>Name: <a href="https://github.com/PrestaShop/ps_languageselector/releases/tag/v2.1.1">v2.1.1</a><br/>Tag: v2.1.1<br/>Milestone: <a href="https://github.com/PrestaShop/ps_languageselector/milestone/1">
+        2.1.1</a></td>
+            <td>Milestone(s): <a href="https://github.com/PrestaShop/ps_languageselector/milestone/2">2.1.2</a></td>
+        </tr><tr class="table-light">
+            <th scope="row">25</th>
+            <td><a href="https://github.com/prestashop/ps_currencyselector">ps_currencyselector</a></td>
+            <td>NO</td>
+            <td>0</td>
+            <td>2023-01-12 09:41:57</td>
+            <td>Name: <a href="https://github.com/PrestaShop/ps_currencyselector/releases/tag/v2.1.0">v2.1.0</a><br/>Tag: v2.1.0<br/>Milestone: <a href="https://github.com/PrestaShop/ps_currencyselector/milestone/1">
+        2.1.0</a></td>
+            <td>Milestone(s): <a href="https://github.com/PrestaShop/ps_currencyselector/milestone/3">2.1.1</a></td>
+        </tr><tr class="table-light">
+            <th scope="row">62</th>
+            <td><a href="https://github.com/prestashop/statsdata">statsdata</a></td>
+            <td>NO</td>
+            <td>0</td>
+            <td>2023-01-11 10:19:56</td>
+            <td>Name: <a href="https://github.com/PrestaShop/statsdata/releases/tag/v2.1.1">v2.1.1</a><br/>Tag: v2.1.1<br/>Milestone: <a href="https://github.com/PrestaShop/statsdata/milestone/1">
+        2.1.1</a></td>
+            <td>Milestone(s): <a href="https://github.com/PrestaShop/statsdata/milestone/2">2.1.2</a></td>
+        </tr><tr class="table-light">
+            <th scope="row">4</th>
+            <td><a href="https://github.com/prestashop/contactform">contactform</a></td>
+            <td>NO</td>
+            <td>0</td>
+            <td>2022-11-30 13:06:59</td>
+            <td>Name: <a href="https://github.com/PrestaShop/contactform/releases/tag/v4.4.0">v4.4.0</a><br/>Tag: v4.4.0<br/>Milestone: <a href="https://github.com/PrestaShop/contactform/milestone/1">
+        4.4.0</a>, <strong style="color:red;">NOT CLOSED!</strong></td>
+            <td><strong style="color:red;">Milestone not found!</strong></td>
+        </tr><tr class="table-light">
+            <th scope="row">22</th>
+            <td><a href="https://github.com/prestashop/ps_checkpayment">ps_checkpayment</a></td>
+            <td>NO</td>
+            <td>0</td>
+            <td>2022-12-06 12:20:46</td>
+            <td>Name: <a href="https://github.com/PrestaShop/ps_checkpayment/releases/tag/v2.0.6">v2.0.6</a><br/>Tag: v2.0.6<br/>Milestone: <a href="https://github.com/PrestaShop/ps_checkpayment/milestone/1">
+        2.0.6</a>, <strong style="color:red;">NOT CLOSED!</strong></td>
+            <td><strong style="color:red;">Milestone not found!</strong></td>
+        </tr><tr class="table-light">
+            <th scope="row">19</th>
+            <td><a href="https://github.com/prestashop/ps_cashondelivery">ps_cashondelivery</a></td>
+            <td>NO</td>
+            <td>0</td>
+            <td>2022-07-15 15:20:08</td>
+            <td>Name: <a href="https://github.com/PrestaShop/ps_cashondelivery/releases/tag/v2.0.1">v2.0.1</a><br/>Tag: v2.0.1<br/>Milestone: <a href="https://github.com/PrestaShop/ps_cashondelivery/milestone/3">
+        2.0.1</a>, <strong style="color:red;">NOT CLOSED!</strong></td>
+            <td><strong style="color:red;">Milestone not found!</strong></td>
+        </tr><tr class="table-light">
+            <th scope="row">9</th>
+            <td><a href="https://github.com/prestashop/gamification">gamification</a></td>
+            <td>NO</td>
+            <td>0</td>
+            <td>2022-06-13 07:06:02</td>
+            <td>Name: <a href="https://github.com/PrestaShopCorp/gamification/releases/tag/v2.5.0">v2.5.0</a><br/>Tag: v2.5.0<br/>Not found</td>
+            <td><strong style="color:red;">Milestone not found!</strong></td>
+        </tr><tr class="table-light">
+            <th scope="row">23</th>
+            <td><a href="https://github.com/prestashop/ps_contactinfo">ps_contactinfo</a></td>
+            <td>NO</td>
+            <td>0</td>
+            <td>2022-12-26 17:10:23</td>
+            <td>Name: <a href="https://github.com/PrestaShop/ps_contactinfo/releases/tag/v3.3.1">v3.3.1</a><br/>Tag: v3.3.1<br/>Milestone: <a href="https://github.com/PrestaShop/ps_contactinfo/milestone/1">
+        3.3.1</a></td>
+            <td>Milestone(s): <a href="https://github.com/PrestaShop/ps_contactinfo/milestone/2">3.3.2</a></td>
+        </tr><tr class="table-light">
+            <th scope="row">7</th>
+            <td><a href="https://github.com/prestashop/dashproducts">dashproducts</a></td>
+            <td>NO</td>
+            <td>0</td>
+            <td>2022-11-30 16:35:45</td>
+            <td>Name: <a href="https://github.com/PrestaShop/dashproducts/releases/tag/v2.1.2">v2.1.2</a><br/>Tag: v2.1.2<br/>Milestone: <a href="https://github.com/PrestaShop/dashproducts/milestone/2">
+        2.1.2</a></td>
+            <td>Milestone(s): <a href="https://github.com/PrestaShop/dashproducts/milestone/3">2.1.3</a></td>
+        </tr><tr class="table-light">
+            <th scope="row">16</th>
+            <td><a href="https://github.com/prestashop/ps_bestsellers">ps_bestsellers</a></td>
+            <td>NO</td>
+            <td>0</td>
+            <td>2023-01-12 17:29:40</td>
+            <td>Name: <a href="https://github.com/PrestaShop/ps_bestsellers/releases/tag/v1.0.4">v1.0.4</a><br/>Tag: v1.0.4<br/>Milestone: <a href="https://github.com/PrestaShop/ps_bestsellers/milestone/1">
+        1.0.4</a></td>
+            <td>Milestone(s): <a href="https://github.com/PrestaShop/ps_bestsellers/milestone/2">1.0.5</a></td>
+        </tr>
         </tbody>
       </table>
     </div>
