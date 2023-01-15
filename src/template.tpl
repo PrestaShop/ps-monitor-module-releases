@@ -37,7 +37,10 @@
       <span class="badge bg-primary">Latest update: {%%latestUpdateDate%%}</span>
     </div>
 
-    <div class="container">
+    <div class="container-fluid">
+
+      {%%notifications%%}
+
       <table class="table table-striped table-bordered" id="modules">
         <thead>
           <tr>
@@ -45,12 +48,13 @@
             <th scope="col">Module name</th>
             <th scope="col">Need release?</th>
             <th scope="col">Commits ahead</th>
-            <th scope="col">Last release date</th>
-            <th scope="col">Pull Request</th>
+            <th scope="col">Last release</th>
+            <th scope="col">Last release information</th>
+            <th scope="col">Next release information</th>
           </tr>
         </thead>
         <tbody>
-          {%%placeholder%%}
+          {%%tableBody%%}
         </tbody>
       </table>
     </div>
