@@ -12,7 +12,7 @@ $client = new \Github\Client();
 $token = $argv[1];
 $client->authenticate($token, null, Github\Client::AUTH_HTTP_TOKEN);
 
-$branchManager = new \App\PrestaShopModulesReleaseMonitor\BranchManager($client);
+$branchManager = new \App\PrestaShopModulesReleas
 
 function getModules($client): array
 {
