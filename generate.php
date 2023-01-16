@@ -6,11 +6,13 @@ require_once __DIR__ . '/vendor/autoload.php';
 // Get token from parameters, CLI or GET
 $token = null;
 if (isset($argc) && !empty($argv[1])) {
-    echo 'Using CLI token</br>';
+    $separator = "\n";
+    echo 'Using CLI token' . $separator;
     $token = $argv[1];
 }
 if (!empty($_GET['token'])) {
-    echo 'Using GET token</br>';
+    $separator = "<br/>";
+    echo 'Using GET token' . $separator;
     $token = $_GET['token'];
 }
 if (empty($token)) {
@@ -20,17 +22,20 @@ if (empty($token)) {
 // Initialize github client and login
 $client = new \Github\Client();
 $client->authenticate($token, null, Github\Client::AUTH_HTTP_TOKEN);
-echo 'Login successful</br>';
+echo 'Login successful' . $separator;
 
 $branchManager = new \App\PrestaShopModulesReleaseMonitor\BranchManager($client);
 
 function getModules($client): array
 {
     $contents = $client->api('repo')->contents()->show('PrestaShop', 'PrestaShop-modules');
-
     $modules = [];
     foreach ($contents as $content) {
         if (!empty($content['download_url'])) {
+            continue;
+        }
+        // Skip extra corp modules
+        if ($content['name'] == 'gamification' || $content['name'] == 'ps_emailsmanager') {
             continue;
         }
         $modules[] = $content['name'];
@@ -62,11 +67,10 @@ function getClassByNbCommitsAhead(int $nbCommitsAhead): string
     return 'table-' . $trClass;
 }
 
-echo 'Fetching list of modules</br>';
+echo 'Fetching list of modules' . $separator;
 $modulesToProcess = getModules($client);
-// $modulesToProcess = ['blockreassurance', 'statsstock'];
-echo 'Module list initialized, found ' . count($modulesToProcess) . ' module</br>';
-echo 'Rendering table</br>';
+echo 'Module list initialized, found ' . count($modulesToProcess) . ' module' . $separator;
+echo 'Rendering table' . $separator;
 
 // Data we will use to render an overview
 $notifications = [
@@ -74,6 +78,9 @@ $notifications = [
     'unclosed_milestone' => [],
     'no_next_milestone' => [],
     'old_milestones' => [],
+    'multiple_milestones' => [],
+    'version_mismatch' => [],
+    'wrong_version' => [],
 ];
 
 $template = file_get_contents(__DIR__.'/src/template.tpl');
@@ -143,6 +150,12 @@ foreach ($modulesToProcess as $moduleName) {
             $tmp[] = '<a href="' . $m['url'] . '">' . $m['title'] . '</a>';
         }
         $nextReleaseInformation[] = 'Milestone(s): ' . implode(", ", $tmp);
+
+        // If there are multiple milestones
+        if (count($data['milestoneInformation']['next']) > 1) {
+            $nextReleaseInformation[] = '<strong style="color:red;">Multiple milestones open.</strong>';
+            $notifications['multiple_milestones'][] = $moduleName;
+        }
     } else {
         $nextReleaseInformation[] = '<strong style="color:red;">Milestone not found!</strong>';
         $notifications['no_next_milestone'][] = $moduleName;
@@ -151,6 +164,45 @@ foreach ($modulesToProcess as $moduleName) {
     // Info about old milestones
     if (!empty($data['milestoneInformation']['old'])) {
         $notifications['old_milestones'][] = $moduleName;
+    }
+
+    // Add info about versions
+    $versions = [];
+    if (!empty($data['moduleFileVersion'])) {
+        $versions[] = 'PHP - ' . $data['moduleFileVersion'];
+    }
+    if (!empty($data['configFileVersion'])) {
+        $versions[] = 'XML - ' . $data['configFileVersion'];
+    }
+    $nextReleaseInformation[] = 'Versions: ' . implode(', ', $versions);
+
+    // Check if versions match
+    if ($data['moduleFileVersion'] != $data['configFileVersion']) {
+        $nextReleaseInformation[] = '<strong style="color:red;">Version mismatch!</strong>';
+        $notifications['version_mismatch'][] = $moduleName;
+    }
+
+    // Check if versions match any old or new milestone
+    if (!empty($data['moduleFileVersion'])) {
+        $matchesMilestone = false;
+        if (!empty($data['milestoneInformation']['last'])) {
+            foreach ($data['milestoneInformation']['last'] as $m) {
+                if ($m['title'] == $data['moduleFileVersion']) {
+                    $matchesMilestone = true;
+                }
+            }
+        }
+        if (!empty($data['milestoneInformation']['next'])) {
+            foreach ($data['milestoneInformation']['next'] as $m) {
+                if ($m['title'] == $data['moduleFileVersion']) {
+                    $matchesMilestone = true;
+                }
+            }
+        }
+        if ($matchesMilestone === false) {
+            $nextReleaseInformation[] = '<strong style="color:red;">Wrong version!</strong>';
+            $notifications['wrong_version'][] = $moduleName;
+        }
     }
 
     // Render the table row
@@ -184,6 +236,16 @@ foreach ($modulesToProcess as $moduleName) {
 
 // Process notifications
 $notifications_html = '';
+if (!empty($notifications['version_mismatch'])) {
+    $notifications_html .= '<div class="alert alert-warning" role="alert">
+        Modules <strong>' . implode(', ', $notifications['version_mismatch']) . '</strong> have different module versions in the module file and config.xml, it\'s required to unify it.
+    </div>';
+}
+if (!empty($notifications['wrong_version'])) {
+    $notifications_html .= '<div class="alert alert-warning" role="alert">
+        Versions of modules <strong>' . implode(', ', $notifications['wrong_version']) . '</strong> don\'t match the last or any current open milestone.
+    </div>';
+}
 if (!empty($notifications['not_published'])) {
     $notifications_html .= '<div class="alert alert-warning" role="alert">
         Modules <strong>' . implode(', ', $notifications['not_published']) . '</strong> have releases created, but not published.
@@ -191,12 +253,12 @@ if (!empty($notifications['not_published'])) {
 }
 if (!empty($notifications['unclosed_milestone'])) {
     $notifications_html .= '<div class="alert alert-warning" role="alert">
-        Modules <strong>' . implode(', ', $notifications['unclosed_milestone']) . '</strong> have unclosed milestones, close them.
+        Modules <strong>' . implode(', ', $notifications['unclosed_milestone']) . '</strong> have unclosed milestones, close them. Check that there were no PRs added to these milestones after release.
     </div>';
 }
 if (!empty($notifications['no_next_milestone'])) {
     $notifications_html .= '<div class="alert alert-warning" role="alert">
-        Modules <strong>' . implode(', ', $notifications['no_next_milestone']) . '</strong> don\'t have next milestones.
+        Modules <strong>' . implode(', ', $notifications['no_next_milestone']) . '</strong> don\'t have next milestones. You should create them.
     </div>';
 }
 if (!empty($notifications['old_milestones'])) {
@@ -204,8 +266,13 @@ if (!empty($notifications['old_milestones'])) {
         Modules <strong>' . implode(', ', $notifications['old_milestones']) . '</strong> have some old unclosed milestones.
     </div>';
 }
+if (!empty($notifications['multiple_milestones'])) {
+    $notifications_html .= '<div class="alert alert-warning" role="alert">
+        Modules <strong>' . implode(', ', $notifications['multiple_milestones']) . '</strong> have multiple milestones. This should not be the case in case of modules repositories.
+    </div>';
+}
 
-echo 'Rendering finished, saving to <a href="docs/index.html">index.html</a></br>';
+echo 'Rendering finished, saving to <a href="docs/index.html">index.html</a>' . $separator;
 
 file_put_contents(
     __DIR__ . '/docs/index.html',
@@ -224,5 +291,5 @@ file_put_contents(
     )
 );
 
-echo 'Generated in ' . (microtime(true) - $timeStart) . ' seconds</br>';
+echo 'Generated in ' . (microtime(true) - $timeStart) . ' seconds' . $separator;
 die();

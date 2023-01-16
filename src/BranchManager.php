@@ -32,14 +32,20 @@ class BranchManager
         // Try to get data about latest release of this module
         $latestRelease = null;
         try {
-            $release = $this->client->api('repo')->releases()->latest('prestashop', $repositoryName);
-            $latestRelease = [
-                'date' => (new DateTime($release['created_at']))->format('Y-m-d H:i:s'),
-                'name' => $release['name'],
-                'tag' => $release['tag_name'],
-                'url' => $release['html_url'],
-                'date_published' => (new DateTime($release['published_at']))->format('Y-m-d H:i:s'),
-            ];
+            $release = $this->client->api('repo')->releases()->latest(
+                'prestashop',
+                $repositoryName,
+                
+            );
+            if (!empty($release)) {
+                $latestRelease = [
+                    'date' => (new DateTime($release['created_at']))->format('Y-m-d H:i:s'),
+                    'name' => $release['name'],
+                    'tag' => $release['tag_name'],
+                    'url' => $release['html_url'],
+                    'date_published' => (new DateTime($release['published_at']))->format('Y-m-d H:i:s'),
+                ];
+            }
         } catch (Exception $e) {
         }
 
@@ -164,6 +170,42 @@ class BranchManager
             'latestRelease' => $latestRelease,
             'pullRequest' => $openPullRequest,
             'milestoneInformation' => $milestoneInformation,
+            'moduleFileVersion' => $this->getModuleFileVersion($repositoryName),
+            'configFileVersion' => $this->getConfigFileVersion($repositoryName),
         ];
+    }
+
+    public function getModuleFileVersion($repositoryName)
+    {
+        $data = @file_get_contents('https://raw.githubusercontent.com/PrestaShop/' . $repositoryName . '/dev/' . $repositoryName . '.php');
+        if (empty($data)) {
+            return null;
+        }
+
+        $data = explode('$this->version', $data)[1];
+        $data = explode(';', $data)[0];
+        $data = preg_replace('/[^0-9.]/', '', $data);
+        if (empty($data)) {
+            return null;
+        }
+
+        return $data;
+    }
+
+    public function getConfigFileVersion($repositoryName)
+    {
+        $data = @file_get_contents('https://raw.githubusercontent.com/PrestaShop/' . $repositoryName . '/dev/config.xml');
+        if (empty($data)) {
+            return null;
+        }
+
+        $data = explode('<version>', $data)[1];
+        $data = explode('</version>', $data)[0];
+        $data = preg_replace('/[^0-9.]/', '', $data);
+        if (empty($data)) {
+            return null;
+        }
+
+        return $data;
     }
 }
