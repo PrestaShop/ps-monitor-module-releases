@@ -35,7 +35,6 @@ class BranchManager
             $release = $this->client->api('repo')->releases()->latest(
                 'prestashop',
                 $repositoryName,
-                
             );
             if (!empty($release)) {
                 $latestRelease = [
@@ -65,8 +64,8 @@ class BranchManager
 
         // Try to fetch milestone for current release
         if (!empty($latestRelease)) {
-            // Remove v from release name to get related milestone
-            $milestoneVersion = str_replace("v", "", $latestRelease['name']);
+            // Get milestone name to search for
+            $milestoneVersion = preg_replace('/[^0-9.]/', '', $latestRelease['name']);
             foreach ($milestones as $milestone) {
                 // If we have a milestone with the same name as last release tag
                 if ($milestone['title'] == $milestoneVersion) {
