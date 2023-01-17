@@ -94,7 +94,6 @@ $i = 1;
 
 // Let's go through all prestashop modules and process data we need
 foreach ($modulesToProcess as $k => $moduleName) {
-
     echo 'Processing ' . $moduleName . ' (' . ($k + 1) . '/' . count($modulesToProcess) . ')' . $separator;
 
     // Get data about repository
