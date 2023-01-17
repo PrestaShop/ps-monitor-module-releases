@@ -28,14 +28,20 @@ $branchManager = new \App\PrestaShopModulesReleaseMonitor\BranchManager($client)
 
 function getModules($client): array
 {
+    // Modules that are present in the repo, but we want to ignore
+    $moduleBlacklist = [
+        'gamification',
+        'ps_emailsmanager',
+        'ps_buybuttonlite',
+    ];
+
     $contents = $client->api('repo')->contents()->show('PrestaShop', 'PrestaShop-modules');
     $modules = [];
     foreach ($contents as $content) {
         if (!empty($content['download_url'])) {
             continue;
         }
-        // Skip extra corp modules
-        if ($content['name'] == 'gamification' || $content['name'] == 'ps_emailsmanager') {
+        if (in_array($content['name'], $moduleBlacklist)) {
             continue;
         }
         $modules[] = $content['name'];
@@ -69,8 +75,7 @@ function getClassByNbCommitsAhead(int $nbCommitsAhead): string
 
 echo 'Fetching list of modules' . $separator;
 $modulesToProcess = getModules($client);
-echo 'Module list initialized, found ' . count($modulesToProcess) . ' module' . $separator;
-echo 'Rendering table' . $separator;
+echo 'Module list initialized, found ' . count($modulesToProcess) . ' modules' . $separator;
 
 // Data we will use to render an overview
 $notifications = [
@@ -88,7 +93,9 @@ $tableRows = [];
 $i = 1;
 
 // Let's go through all prestashop modules and process data we need
-foreach ($modulesToProcess as $moduleName) {
+foreach ($modulesToProcess as $k => $moduleName) {
+
+    echo 'Processing ' . $moduleName . ' (' . ($k + 1) . '/' . count($modulesToProcess) . ')' . $separator;
 
     // Get data about repository
     $data = $branchManager->getReleaseData($moduleName);
