@@ -1,0 +1,27 @@
+name: Test generate
+on: [ push, pull_request ]
+permissions:
+  contents: write
+concurrency:
+  group: ${{ github.event_name }}-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+jobs:
+  test-run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 7.4
+
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Composer Install
+        run: composer install --ansi --prefer-dist --no-interaction --no-progress
+
+      - name: Generate
+        run: |
+          php generate.php $GITHUB_TOKEN
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
