@@ -76,6 +76,10 @@ function getClassByNbCommitsAhead(int $nbCommitsAhead): string
 echo 'Fetching list of modules' . $separator;
 $modulesToProcess = getModules($client);
 echo 'Module list initialized, found ' . count($modulesToProcess) . ' modules' . $separator;
+$modulesToProcess = [
+    'productcomments',
+    'ps_linklist',
+];
 
 // Data we will use to render an overview
 $notifications = [
@@ -86,6 +90,7 @@ $notifications = [
     'multiple_milestones' => [],
     'version_mismatch' => [],
     'wrong_version' => [],
+    'missing_zip' => [],
 ];
 
 $template = file_get_contents(__DIR__.'/src/template.tpl');
@@ -107,6 +112,10 @@ foreach ($modulesToProcess as $k => $moduleName) {
         if (empty($data['latestRelease']['date_published'])) {
             $lastReleaseInformation[] = '<strong style="color:red;">Release not published yet!</strong>';
             $notifications['not_published'][] = $moduleName;
+        }
+        if ($data['latestRelease']['built_zip'] === false) {
+            $lastReleaseInformation[] = '<strong style="color:red;">Release is missing built ZIP!</strong>';
+            $notifications['missing_zip'][] = $moduleName;
         }
     } else {
         $lastReleaseInformation[] = 'No release yet';
@@ -250,6 +259,11 @@ if (!empty($notifications['version_mismatch'])) {
 if (!empty($notifications['wrong_version'])) {
     $notifications_html .= '<div class="alert alert-warning" role="alert">
         Versions of modules <strong>' . implode(', ', $notifications['wrong_version']) . '</strong> don\'t match the last or any current open milestone.
+    </div>';
+}
+if (!empty($notifications['missing_zip'])) {
+    $notifications_html .= '<div class="alert alert-warning" role="alert">
+        Modules <strong>' . implode(', ', $notifications['missing_zip']) . '</strong> don\'t have a proper built ZIP attached.
     </div>';
 }
 if (!empty($notifications['not_published'])) {
