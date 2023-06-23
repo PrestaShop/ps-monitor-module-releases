@@ -76,10 +76,6 @@ function getClassByNbCommitsAhead(int $nbCommitsAhead): string
 echo 'Fetching list of modules' . $separator;
 $modulesToProcess = getModules($client);
 echo 'Module list initialized, found ' . count($modulesToProcess) . ' modules' . $separator;
-$modulesToProcess = [
-    'productcomments',
-    'ps_linklist',
-];
 
 // Data we will use to render an overview
 $notifications = [
