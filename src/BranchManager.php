@@ -37,12 +37,22 @@ class BranchManager
                 $repositoryName,
             );
             if (!empty($release)) {
+                // Check if there is a proper zip attached
+                $built_zip = false;
+                foreach ($release['assets'] as $asset) {
+                    if ($asset['name'] == $repositoryName . '.zip') {
+                        $built_zip = true;
+                    }
+                }
+
+                // Load info about the release
                 $latestRelease = [
                     'date' => (new DateTime($release['created_at']))->format('Y-m-d H:i:s'),
                     'name' => $release['name'],
                     'tag' => $release['tag_name'],
                     'url' => $release['html_url'],
                     'date_published' => (new DateTime($release['published_at']))->format('Y-m-d H:i:s'),
+                    'built_zip' => $built_zip,
                 ];
             }
         } catch (Exception $e) {
