@@ -69,7 +69,10 @@ class BranchManager
         $milestones = $this->client->api('issue')->milestones()->all(
             'prestashop',
             $repositoryName,
-            ['state' => 'all']
+            [
+                'state' => 'all',
+                'per_page' => 100,
+            ]
         );
 
         // Try to fetch milestone for current release
