@@ -162,10 +162,20 @@ foreach ($modulesToProcess as $k => $moduleName) {
         }
         $nextReleaseInformation[] = 'Milestone(s): ' . implode(", ", $tmp);
 
-        // If there are multiple milestones
-        if (count($data['milestoneInformation']['next']) > 1) {
-            $nextReleaseInformation[] = '<strong style="color:red;">Multiple milestones open.</strong>';
-            $notifications['multiple_milestones'][] = $moduleName;
+        // Only warn when several open milestones share the same major version.
+        // Multiple open milestones across different majors is legitimate for
+        // modules maintaining parallel version lines (e.g. autoupgrade 7.x + 8.x).
+        $milestonesByMajor = [];
+        foreach ($data['milestoneInformation']['next'] as $m) {
+            $major = explode('.', trim($m['title']))[0];
+            $milestonesByMajor[$major][] = $m['title'];
+        }
+        foreach ($milestonesByMajor as $titles) {
+            if (count($titles) > 1) {
+                $nextReleaseInformation[] = '<strong style="color:red;">Multiple milestones open for the same major.</strong>';
+                $notifications['multiple_milestones'][] = $moduleName;
+                break;
+            }
         }
     } else {
         $nextReleaseInformation[] = '<strong style="color:red;">Milestone not found!</strong>';

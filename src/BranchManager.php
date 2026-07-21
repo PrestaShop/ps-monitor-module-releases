@@ -80,18 +80,22 @@ class BranchManager
             // Get milestone name to search for
             $milestoneVersion = preg_replace('/[^0-9.]/', '', $latestRelease['name']);
             foreach ($milestones as $milestone) {
+                // Titles in the wild are inconsistent (leading spaces, etc.),
+                // normalize before comparing to avoid mis-sorting.
+                $title = trim($milestone['title']);
+
                 // If we have a milestone with the same name as last release tag
-                if ($milestone['title'] == $milestoneVersion) {
+                if ($title == $milestoneVersion) {
                     $milestoneInformation['last'][] = [
-                        'title' => $milestone['title'],
+                        'title' => $title,
                         'state' => $milestone['state'],
                         'url' => $milestone['html_url'],
                     ];
 
                 // Try to find next milestone higher than the last released version
-                } elseif (version_compare($milestone['title'], $milestoneVersion, '>') && $milestone['state'] == 'open') {
+                } elseif (version_compare($title, $milestoneVersion, '>') && $milestone['state'] == 'open') {
                     $milestoneInformation['next'][] = [
-                        'title' => $milestone['title'],
+                        'title' => $title,
                         'state' => $milestone['state'],
                         'url' => $milestone['html_url'],
                     ];
@@ -99,7 +103,7 @@ class BranchManager
                 // We list some old milestones that are still open
                 } elseif ($milestone['state'] == 'open') {
                     $milestoneInformation['old'][] = [
-                        'title' => $milestone['title'],
+                        'title' => $title,
                         'state' => $milestone['state'],
                         'url' => $milestone['html_url'],
                     ];
@@ -110,7 +114,7 @@ class BranchManager
             foreach ($milestones as $milestone) {
                 if ($milestone['state'] == 'open') {
                     $milestoneInformation['next'][] = [
-                        'title' => $milestone['title'],
+                        'title' => trim($milestone['title']),
                         'state' => $milestone['state'],
                         'url' => $milestone['html_url'],
                     ];
