@@ -40,7 +40,8 @@ class BranchManager
                 // Check if there is a proper zip attached
                 $built_zip = false;
                 foreach ($release['assets'] as $asset) {
-                    if ($asset['name'] == $repositoryName . '.zip') {
+                    // Accept both "<repo>.zip" and versioned names like "<repo>-v1.2.3.zip"
+                    if (preg_match('/^' . preg_quote($repositoryName, '/') . '(-.*)?\.zip$/', $asset['name'])) {
                         $built_zip = true;
                     }
                 }
